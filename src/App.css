@@ -1,0 +1,83 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  margin: auto;
+  padding: 0 1.5rem;
+  max-width: 85rem !important;
+}
+@media screen and (min-width: 640px) {
+  .container {
+    padding: 0 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1620px !important;
+    padding: 0 3.5rem;
+  }
+}
+
+section .heading {
+  @apply justify-center items-center flex flex-col gap-4;
+}
+section .heading .icon svg {
+  @apply h-8 w-8 text-gray-700;
+}
+section .heading .icon {
+  position: relative;
+}
+
+section .heading .icon::before,
+section .heading .icon::after {
+  @apply content-[''] absolute top-1/2 w-[40vw] h-[0.09rem] bg-sky-900/20;
+}
+section .heading .icon::before {
+  @apply left-[calc(100%+1rem)];
+}
+
+section .heading .icon::after {
+  @apply right-[calc(100%+1rem)];
+}
+
+section .heading h2 {
+  @apply text-4xl text-gray-700 font-black uppercase;
+}
+
+section .heading h2 span {
+  @apply text-5xl;
+}
+
+/* gallyer section */
+
+.toggle button {
+  @apply px-6 py-2.5 rounded-xl font-bold text-xl uppercase;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  @apply backdrop-blur-xl bg-sky-600/90 rounded-full !min-h-12 !min-w-12 flex;
+}
+.swiper-button-prev {
+  @apply !left-[1.3rem];
+}
+.swiper-button-next {
+  @apply !right-[1.3rem];
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  @apply text-sky-100 !text-xl;
+}
+.swiper-pagination-bullet {
+  @apply bg-white/20 !h-2 !w-2;
+}
+
+/* Contact */
+#contact .contact-info .img {
+  border-bottom-left-radius: 50% 40%;
+  border-bottom-right-radius: 50% 40%;
+  border-top-left-radius: 50% 60%;
+  border-top-right-radius: 50% 60%;
+  overflow: hidden;
+}
