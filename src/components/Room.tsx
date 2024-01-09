@@ -1,4 +1,3 @@
-import React from "react";
 import { RiHotelBedFill } from "react-icons/ri";
 import galleryImages from "@/data/data";
 
