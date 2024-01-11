@@ -36,12 +36,14 @@ export default function Gallery() {
         <div className="toggle flex justify-center w-full my-6">
           <button
             onClick={() => setActive(true)}
-            className={`${active ? "bg-sky-400 text-white" : "text-gray-800"}`}
+            className={`${active ? "bg-blue-400 text-white" : "text-gray-800"}`}
           >
             Outdoor
           </button>
           <button
-            className={`${!active ? "bg-sky-400 text-white" : "text-gray-800"}`}
+            className={`${
+              !active ? "bg-blue-400 text-white" : "text-gray-800"
+            }`}
             onClick={() => setActive(false)}
           >
             Indoor

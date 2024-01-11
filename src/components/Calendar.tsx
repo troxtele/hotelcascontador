@@ -21,6 +21,14 @@ export default function Calendar() {
             Tu navegador no soporta iframes
           </iframe>
         </div>
+
+        <div className="crads">
+          <iframe
+            src="https://bookonline.pro/es/properties/6835?unidades=1&amp;iframe=1"
+            width="100%"
+            height="1500px"
+          ></iframe>
+        </div>
       </div>
     </section>
   );

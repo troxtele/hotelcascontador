@@ -1,5 +1,5 @@
 import { FiMail } from "react-icons/fi";
-import image from "@/assets/images/contact/contact.jpg";
+import image from "@/assets/images/contact/contact.webp";
 export default function Contact() {
   return (
     <section id="contact" className="max-w-screen overflow-hidden py-20">

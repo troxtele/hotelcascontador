@@ -1,4 +1,4 @@
-import { RiHotelBedFill } from "react-icons/ri";
+ import { RiHotelBedFill } from "react-icons/ri";
 import galleryImages from "@/data/data";
 
 export default function Room() {
@@ -15,11 +15,11 @@ export default function Room() {
         </div>
 
         <div className="images">
-          <div className="flex flex-col gap-1 h-[500px]">
+          <div className="flex flex-col gap-1 h-[700px]">
             {galleryImages.slice(38, 43).map((image, index) => (
               <div
                 key={index + image}
-                className="relative group overflow-hidden rounded-lg h-[100px] hover:h-[400px] transition-all duration-500"
+                className="relative group overflow-hidden rounded-lg h-[100px] hover:h-[700px] transition-all duration-500"
               >
                 <img
                   className="w-full transition-all duration-500"

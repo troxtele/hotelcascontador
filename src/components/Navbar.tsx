@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo.webp";
 
 const navItems = [
   { name: "Calendar", link: "/#calendar" },
@@ -16,20 +16,20 @@ export default function Navbar() {
   const [activeLink, setActiveLink] = useState("Calendar");
 
   window.onscroll = () => {
-    if (window.scrollY > 20) setScrolled(true);
+    if (window.scrollY > 0) setScrolled(true);
     else setScrolled(false);
   };
 
   return (
     <>
       <header
-        className={`z-50 sticky left-0 top-0 right-0 bg-white/50 backdrop-blur-3xl transition-all duration-300 ${
+        className={`z-50 sticky left-0 top-0 right-0 bg-white/80 backdrop-blur-3xl transition-all duration-300 ${
           scrolled ? "drop-shadow-xl" : ""
         } `}
       >
         <div className="container">
           <div className="wrapper flex justify-between items-center">
-            <a href="/" className="main-logo flex gap-1 py-1">
+            <a href="/#hero" className="main-logo flex gap-1 py-1">
               <img
                 className={`transition-all duration-300 ${
                   scrolled ? "max-h-[2.1rem]" : "max-h-[3rem]"
@@ -45,9 +45,9 @@ export default function Navbar() {
                   <li key={index + item.name} className="h-full">
                     <a
                       href={item.link}
-                      className={`flex h-full font-semibold border-b-4 hover:border-sky-400 hover:text-primary transition-all duration-300 py-4 cursor-pointer ${
+                      className={`flex h-full font-semibold border-b-4 hover:border-blue-400 hover:text-primary transition-all duration-300 py-4 cursor-pointer ${
                         activeLink === item.name
-                          ? "border-sky-500 text-primary"
+                          ? "border-blue-500 text-primary"
                           : "border-transparent"
                       }`}
                       onClick={() => setActiveLink(item.name)}

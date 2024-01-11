@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  @apply text-stone-800;
+}
+
 .container {
   margin: auto;
   padding: 0 1.5rem;
@@ -20,6 +24,39 @@ html {
   }
 }
 
+/* hero section */
+.hero {
+}
+
+/* wave */
+.hero .wave {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSI5MXB4IiB2aWV3Qm94PSIwIDAgMTI4MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0iI0ZGRkZGRiI+PHBhdGggZD0iTTg1My44OTMsODYuOTk4Yy0zOC44NTksMC01OC44MTEtMTYuNDU1LTc3Ljk1Ni0zNS4wNTFjMTguMjk1LTEwLjUzNiw0MC44OTEtMTguMjc2LDczLjM3OC0xOC4yNzYgYzM4LjY4NSwwLDY0LjEzMiwxMi41NjQsODUuNDg5LDI4LjM0N0M5MTYuMTkyLDcyLjAxMiw5MDAuOCw4Ni45OTgsODUzLjg5Myw4Ni45OTh6IE01MjYuMjY1LDgwLjk0NSBjLTYuNTE3LTAuNTYyLTEzLjU5OS0wLjg3OS0yMS40MS0wLjg3OWMtNzAuNzk5LDAtOTEuMzM3LDI3LjIyOS0xMzQuNDMzLDM1LjY2MmMxNC45MDEsMy43MiwzMi4xMTgsNi4wNyw1Mi44OTgsNi4wNyBDNDcwLjE3MSwxMjEuNzk3LDUwMC4zNCwxMDMuNDIxLDUyNi4yNjUsODAuOTQ1eiIgZmlsbC1vcGFjaXR5PSIuMyIvPjxwYXRoIGQ9Ik02NjMuNDU4LDEwOS42NzFjLTY3LjEzNywwLTgwLjM0NS0yMy44MjQtMTM3LjE5My0yOC43MjZDNTY3LjA4Niw0NS41NTUsNTk3LjM4MSwwLDY2NS42OTEsMCBjNjEuODU3LDAsODUuMzY5LDI3Ljc4MiwxMTAuMjQ2LDUxLjk0N0M3MzYuODg4LDc0LjQzNCw3MTcuNDU5LDEwOS42NzEsNjYzLjQ1OCwxMDkuNjcxeiBNMjE3LjY4LDk0LjE2MyBjNTUuOTcxLDAsNjIuNTI2LDI0LjAyNiwxMjYuMzM3LDI0LjAyNmM5Ljg1OCwwLDE4LjUwOC0wLjkxNiwyNi40MDQtMi40NjFjLTU3LjE4Ni0xNC4yNzgtODAuMTc3LTQ4LjgwOC0xMzguNjU5LTQ4LjgwOCBjLTc3LjA2MywwLTk5Ljk2LDQ4LjU2OS0xNTEuNzUxLDQ4LjU2OWMtNDAuMDA2LDAtNjAuMDA4LTEyLjIwNi04MC4wMTEtMjkuNTA2djE2LjgwNmMyMC4wMDMsMTAuODkxLDQwLjAwNSwyMS43ODIsODAuMDExLDIxLjc4MiBDMTYwLjAxNCwxMjQuNTcsMTU4LjYwOCw5NC4xNjMsMjE3LjY4LDk0LjE2M3ogTTEyMDAuMTEyLDQ2LjI5MmMtNTcuNDkzLDAtNTYuOTM1LDQ2LjU5NS0xMTUuMDE1LDQ2LjU5NSBjLTUzLjYxMiwwLTU5Ljc1NS0zOS42MTgtMTE1LjYwMi0zOS42MThjLTE1LjI2NywwLTI1LjM4MSwzLjc1MS0zNC42OSw4Ljc0OWMzNi4wOTYsMjYuNjc1LDYwLjUwMyw2Mi41NTIsMTE3LjM0Miw2Mi41NTIgYzY5LjI0OSwwLDc1Ljk1MS00My41NTksMTQ3Ljk2NC00My41NTljMzkuODA0LDAsNTkuOTg2LDEwLjk0Myw3OS44ODgsMjEuNzc3Vjg1Ljk4MiBDMTI2MC4wOTcsNjguNzcxLDEyMzkuOTE2LDQ2LjI5MiwxMjAwLjExMiw0Ni4yOTJ6IiBmaWxsLW9wYWNpdHk9Ii41Ii8+PHBhdGggZD0iTTEwNTIuMTQ3LDEyNC41N2MtNTYuODQsMC04MS4yNDctMzUuODc2LTExNy4zNDItNjIuNTUyYy0xOC42MTMsOS45OTQtMzQuMDA1LDI0Ljk4LTgwLjkxMiwyNC45OCBjLTM4Ljg1OSwwLTU4LjgxMS0xNi40NTUtNzcuOTU2LTM1LjA1MWMtMzkuMDUsMjIuNDg3LTU4LjQ3OSw1Ny43MjQtMTEyLjQ4LDU3LjcyNGMtNjcuMTM3LDAtODAuMzQ1LTIzLjgyNC0xMzcuMTkzLTI4LjcyNiBjLTI1LjkyNSwyMi40NzUtNTYuMDkzLDQwLjg1Mi0xMDIuOTQ2LDQwLjg1MmMtMjAuNzc5LDAtMzcuOTk2LTIuMzQ5LTUyLjg5OC02LjA3Yy03Ljg5NSwxLjU0NS0xNi41NDYsMi40NjEtMjYuNDA0LDIuNDYxIGMtNjMuODExLDAtNzAuMzY2LTI0LjAyNi0xMjYuMzM3LTI0LjAyNmMtNTkuMDcyLDAtNTcuNjY1LDMwLjQwNy0xMzcuNjY5LDMwLjQwN2MtNDAuMDA2LDAtNjAuMDA4LTEwLjg5MS04MC4wMTEtMjEuNzgyVjE0MGgxMjgwIHYtMzcuMjEyYy0xOS45MDMtMTAuODM1LTQwLjA4NC0yMS43NzctNzkuODg4LTIxLjc3N0MxMTI4LjA5OCw4MS4wMTEsMTEyMS4zOTcsMTI0LjU3LDEwNTIuMTQ3LDEyNC41N3oiLz48L2c+PC9zdmc+);
+  background-size: 100% 91px;
+  bottom: 0;
+  height: 91px;
+  z-index: 10;
+  transform: scale(1, 1);
+}
+
+.hero .arrow {
+  animation-name: upDown;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.7rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 section .heading {
   @apply justify-center items-center flex flex-col gap-4;
 }
@@ -32,7 +69,7 @@ section .heading .icon {
 
 section .heading .icon::before,
 section .heading .icon::after {
-  @apply content-[''] absolute top-1/2 w-[40vw] h-[0.09rem] bg-sky-900/20;
+  @apply content-[''] absolute top-1/2 w-[40vw] h-[0.09rem] bg-blue-900/20;
 }
 section .heading .icon::before {
   @apply left-[calc(100%+1rem)];
@@ -57,7 +94,7 @@ section .heading h2 span {
 }
 .swiper-button-prev,
 .swiper-button-next {
-  @apply backdrop-blur-xl bg-sky-600/90 rounded-full !min-h-12 !min-w-12 flex;
+  @apply backdrop-blur-xl bg-blue-600/90 rounded-full !min-h-12 !min-w-12 flex;
 }
 .swiper-button-prev {
   @apply !left-[1.3rem];
@@ -67,7 +104,7 @@ section .heading h2 span {
 }
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  @apply text-sky-100 !text-xl;
+  @apply text-blue-100 !text-xl;
 }
 .swiper-pagination-bullet {
   @apply bg-white/20 !h-2 !w-2;
@@ -80,4 +117,18 @@ section .heading h2 span {
   border-top-left-radius: 50% 60%;
   border-top-right-radius: 50% 60%;
   overflow: hidden;
+}
+
+/* footer section */
+
+footer {
+  background: linear-gradient(
+    20deg,
+    rgba(59, 130, 246, 0.7) 0%,
+    rgba(96, 165, 250, 1) 100%
+  );
+}
+
+footer svg {
+  @apply h-6 w-6 text-gray-700;
 }
