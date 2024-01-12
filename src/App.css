@@ -28,7 +28,7 @@ body {
 
 /* hero section */
 .hero h1 span {
-  @apply text-6xl;
+  @apply text-2xl xs:text-4xl sm:text-5xl md:text-6xl;
 }
 
 /* wave */

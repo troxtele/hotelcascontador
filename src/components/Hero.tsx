@@ -4,17 +4,17 @@ import { RiArrowDownDoubleLine } from "react-icons/ri";
 
 export default function Hero() {
   return (
-    <main id="hero" className="hero relative">
+    <main id="hero" className="hero relative overflow-hidden">
       {/* background */}
-      <div className="bg-video after:absolute after:bg-black/50 after:h-full after:w-full after:inset-0">
+      <div className="bg-video after:absolute after:bg-black/50 after:h-full after:w-full after:inset-0 -mx-44 xs:-mx-36 sm:-mx-30 md:mx-0">
         <video autoPlay muted loop id="myVideo">
           <source src={video} type="video/mp4" />
           Your browser does not support HTML5 video.
         </video>
       </div>
       <div className="container">
-        <div className="content absolute left-1/2 top-[40%] transform -translate-x-1/2 -translate-y-1/2 text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white w-full flex flex-col justify-center items-center uppercase">
-          <h1 className="large-text">
+        <div className="content absolute left-1/2 top-[40%] transform -translate-x-1/2 -translate-y-1/2 text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white w-full flex flex-col justify-center items-center uppercase max-w-screen px-5">
+          <h1 className="large-text text-center">
             <span>H</span>oliday <span>C</span>ottage <span>I</span>n{" "}
             <span>M</span>allorca
           </h1>
@@ -26,7 +26,7 @@ export default function Hero() {
       </div>
 
       {/* wave */}
-      <div className="wave absolute bottom-0 left-0 right-0"></div>
+      <div className="wave absolute -bottom-10 left-0 right-0"></div>
     </main>
   );
 }

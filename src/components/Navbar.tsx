@@ -129,6 +129,7 @@ export default function Navbar() {
               {navItems.map((item, index) => (
                 <li key={index + item.name}>
                   <a
+                    href={item.link}
                     className={`flex py-3 pl-6 w-full font-semibold border-y  transition-all duration-300 ${
                       activeLink === item.name
                         ? "border-blue-400 text-blue-400"
@@ -136,7 +137,7 @@ export default function Navbar() {
                     }`}
                     onClick={() => setActiveLink(item.name)}
                   >
-                    item.name
+                    {item.name}
                   </a>
                 </li>
               ))}
