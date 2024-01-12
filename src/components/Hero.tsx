@@ -13,8 +13,8 @@ export default function Hero() {
         </video>
       </div>
       <div className="container">
-        <div className="content absolute left-1/2 top-[40%] transform -translate-x-1/2 -translate-y-1/2 text-5xl font-bold text-white w-full flex flex-col justify-center items-center uppercase">
-          <h1>
+        <div className="content absolute left-1/2 top-[40%] transform -translate-x-1/2 -translate-y-1/2 text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white w-full flex flex-col justify-center items-center uppercase">
+          <h1 className="large-text">
             <span>H</span>oliday <span>C</span>ottage <span>I</span>n{" "}
             <span>M</span>allorca
           </h1>

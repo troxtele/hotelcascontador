@@ -24,8 +24,11 @@ body {
   }
 }
 
+
+
 /* hero section */
-.hero {
+.hero h1 span {
+  @apply text-6xl;
 }
 
 /* wave */
@@ -131,4 +134,27 @@ footer {
 
 footer svg {
   @apply h-6 w-6 text-gray-700;
+}
+
+.room .img-height {
+  position: relative;
+  flex: 1 0 auto;
+  text-align: center;
+  text-decoration: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease-in-out;
+  transition-duration: 0.3s;
+  margin-bottom: 0 !important;
+  overflow: hidden;
+  transition-duration: 480ms;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.room .img-height:hover {
+  flex: 5 0 auto;
 }

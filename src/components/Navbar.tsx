@@ -8,6 +8,7 @@ const navItems = [
   { name: "Room", link: "/#room" },
   { name: "Testimonial", link: "/#testimonial" },
   { name: "Contact", link: "/#contact" },
+  { name: "Book Now", link: "/#book-now" },
 ];
 
 export default function Navbar() {
@@ -40,15 +41,19 @@ export default function Navbar() {
             </a>
             {/* Nav */}
             <nav className=" text-stone-600 flex justify-center items-center">
-              <ul className="hidden md:flex gap-6 justify-center items-center text-lg uppercase h-full">
+              <ul className="hidden md:flex gap-6 justify-center items-center text-base uppercase h-full">
                 {navItems.map((item, index) => (
                   <li key={index + item.name} className="h-full">
                     <a
                       href={item.link}
-                      className={`flex h-full font-semibold border-b-4 hover:border-blue-400 hover:text-primary transition-all duration-300 py-4 cursor-pointer ${
+                      className={`flex h-full font-normal border-b-4 hover:border-blue-400 hover:text-blue-400 transition-all duration-300 py-4 cursor-pointer ${
                         activeLink === item.name
-                          ? "border-blue-500 text-primary"
+                          ? "border-blue-400 text-blue-400"
                           : "border-transparent"
+                      } ${
+                        navItems.length - 1 === index
+                          ? "text-xl font-semibold"
+                          : ""
                       }`}
                       onClick={() => setActiveLink(item.name)}
                     >
@@ -126,8 +131,8 @@ export default function Navbar() {
                   <a
                     className={`flex py-3 pl-6 w-full font-semibold border-y  transition-all duration-300 ${
                       activeLink === item.name
-                        ? "border-primary text-primary"
-                        : "border-primary/30"
+                        ? "border-blue-400 text-blue-400"
+                        : "border-blue-400/30"
                     }`}
                     onClick={() => setActiveLink(item.name)}
                   >

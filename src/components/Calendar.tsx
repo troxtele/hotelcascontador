@@ -22,7 +22,7 @@ export default function Calendar() {
           </iframe>
         </div>
 
-        <div className="crads">
+        <div id="book-now" className="crads pt-16">
           <iframe
             src="https://bookonline.pro/es/properties/6835?unidades=1&amp;iframe=1"
             width="100%"
