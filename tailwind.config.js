@@ -10,6 +10,10 @@ export default {
       fontFamily: {
         Montserrat: "Montserrat",
       },
+      colors: {
+        primary: "#7fbee9",
+        black: "#333",
+      },
     },
   },
   plugins: [],

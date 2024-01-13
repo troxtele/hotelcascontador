@@ -24,11 +24,13 @@ body {
   }
 }
 
-
-
 /* hero section */
 .hero h1 span {
   @apply text-2xl xs:text-4xl sm:text-5xl md:text-6xl;
+}
+
+.shadow-text {
+  text-shadow: 0.1em 0.1em 0.1em #000000;
 }
 
 /* wave */
@@ -64,7 +66,7 @@ section .heading {
   @apply justify-center items-center flex flex-col gap-4;
 }
 section .heading .icon svg {
-  @apply h-8 w-8 text-gray-700;
+  @apply h-8 w-8 text-black;
 }
 section .heading .icon {
   position: relative;
@@ -83,11 +85,14 @@ section .heading .icon::after {
 }
 
 section .heading h2 {
-  @apply text-4xl text-gray-700 font-black uppercase;
+  @apply text-5xl text-black font-bold uppercase;
+}
+section .heading h2 {
+  text-shadow: 0.08em 0.08em 0.08em rgba(0, 0, 0, 0.4);
 }
 
 section .heading h2 span {
-  @apply text-5xl;
+  @apply text-[4rem];
 }
 
 /* gallyer section */
@@ -97,7 +102,7 @@ section .heading h2 span {
 }
 .swiper-button-prev,
 .swiper-button-next {
-  @apply backdrop-blur-xl bg-blue-600/90 rounded-full !min-h-12 !min-w-12 flex;
+  @apply backdrop-blur-xl bg-sky-400/90 rounded-full !min-h-12 !min-w-12 flex;
 }
 .swiper-button-prev {
   @apply !left-[1.3rem];
@@ -107,19 +112,47 @@ section .heading h2 span {
 }
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  @apply text-blue-100 !text-xl;
+  @apply text-blue-100 !text-xl font-black;
 }
 .swiper-pagination-bullet {
   @apply bg-white/20 !h-2 !w-2;
 }
 
-/* Contact */
+.swiper-pagination-bullet {
+  @apply !bg-primary !opacity-50 !h-2 !w-4 !rounded-md transition-all duration-300;
+}
+.swiper-pagination-bullet-active {
+  @apply !bg-sky-400 !w-7 !opacity-100;
+}
+
+/* Contact section */
 #contact .contact-info .img {
-  border-bottom-left-radius: 50% 40%;
-  border-bottom-right-radius: 50% 40%;
-  border-top-left-radius: 50% 60%;
-  border-top-right-radius: 50% 60%;
-  overflow: hidden;
+  border-radius: 50% 50% 42% 58% / 38% 68% 32% 62%;
+}
+
+#contact .right .title {
+  @apply text-xl uppercase font-semibold text-primary;
+}
+#contact .right .title {
+  text-shadow: 0.08em 0.1em 0.1em rgba(0, 0, 0, 0.4);
+}
+#contact .right span {
+  @apply text-base;
+}
+#contact .right .title span {
+  @apply text-2xl;
+}
+
+#contact .left .type-text span {
+  @apply text-2xl;
+}
+#contact .left .type-text span {
+  font-variant: small-caps;
+}
+
+/* guests section */
+.guests .toggle-btn img {
+  @apply h-24 w-24;
 }
 
 /* footer section */
@@ -132,27 +165,22 @@ footer {
   );
 }
 
-footer svg {
+footer .links svg {
   @apply h-6 w-6 text-gray-700;
 }
 
 .room .img-height {
-  position: relative;
-  flex: 1 0 auto;
-  text-align: center;
-  text-decoration: none;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: all 0.3s ease-in-out;
-  transition-duration: 0.3s;
-  margin-bottom: 0 !important;
-  overflow: hidden;
-  transition-duration: 480ms;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  border-top-color: #ffffff;
-  border-bottom-color: #ffffff;
+ position: relative;
+    flex: 1 0 auto;
+    text-align: center;
+    text-decoration: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all .3s ease-in-out;
+    margin-bottom: 0 !important;
+    overflow: hidden;
+    transition-duration: 480ms;
 }
 
 .room .img-height:hover {

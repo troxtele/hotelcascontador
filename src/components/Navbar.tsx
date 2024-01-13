@@ -6,7 +6,7 @@ const navItems = [
   { name: "Calendar", link: "/#calendar" },
   { name: "Gallery", link: "/#gallery" },
   { name: "Room", link: "/#room" },
-  { name: "Testimonial", link: "/#testimonial" },
+  { name: "Testimonial", link: "/#guests" },
   { name: "Contact", link: "/#contact" },
   { name: "Book Now", link: "/#book-now" },
 ];
@@ -30,31 +30,33 @@ export default function Navbar() {
       >
         <div className="container">
           <div className="wrapper flex justify-between items-center">
-            <a href="/#hero" className="main-logo flex gap-1 py-1">
+            <a href="/#hero" className="main-logo flex gap-1 py-3">
               <img
-                className={`transition-all duration-300 ${
+                className={`transition-all duration-300  ${
                   scrolled ? "max-h-[2.1rem]" : "max-h-[3rem]"
                 }`}
                 src={logo}
-                alt="TheFundedHub"
+                alt="logo"
               />
             </a>
             {/* Nav */}
             <nav className=" text-stone-600 flex justify-center items-center">
-              <ul className="hidden md:flex gap-6 justify-center items-center text-base uppercase h-full">
+              <ul className="hidden lg:flex gap-6 justify-center text-[0.95rem] uppercase h-full">
                 {navItems.map((item, index) => (
-                  <li key={index + item.name} className="h-full">
+                  <li key={index + item.name} className="min-h-full">
                     <a
                       href={item.link}
-                      className={`flex h-full font-normal border-b-4 hover:border-blue-400 hover:text-blue-400 transition-all duration-300 py-4 cursor-pointer ${
+                      className={`flex items-center justify-center h-full font-normal border-b-4 hover:border-primary hover:text-primary transition-all duration-[400ms] cursor-pointer ${
                         activeLink === item.name
-                          ? "border-blue-400 text-blue-400"
+                          ? "border-primary text-primary"
                           : "border-transparent"
                       } ${
                         navItems.length - 1 === index
-                          ? "text-xl font-semibold"
+                          ? "text-lg font-black"
                           : ""
-                      }`}
+                      }
+                        ${scrolled ? "py-4" : "py-9"}
+                      `}
                       onClick={() => setActiveLink(item.name)}
                     >
                       {item.name}
@@ -63,7 +65,7 @@ export default function Navbar() {
                 ))}
               </ul>
 
-              <div className="menu-bar md:hidden">
+              <div className="menu-bar lg:hidden">
                 <svg
                   onClick={() => setnavToggle(!navToggle)}
                   stroke="currentColor"
@@ -116,7 +118,7 @@ export default function Navbar() {
         ></div>
 
         <nav
-          className={`mobile-nav md:hidden fixed top-0 bottom-0 w-[80%] xs:w-[70%] sm:w-[60%] bg-white z-[99] transition-all duration-500 ${
+          className={`mobile-nav lg:hidden fixed top-0 bottom-0 w-[80%] xs:w-[70%] sm:w-[60%] bg-white z-[99] transition-all duration-500 ${
             navToggle ? "left-0 opacity-100" : "-left-full opacity-0"
           }`}
         >
@@ -132,10 +134,13 @@ export default function Navbar() {
                     href={item.link}
                     className={`flex py-3 pl-6 w-full font-semibold border-y  transition-all duration-300 ${
                       activeLink === item.name
-                        ? "border-blue-400 text-blue-400"
-                        : "border-blue-400/30"
+                        ? "border-primary text-primary"
+                        : "border-primary/30"
                     }`}
-                    onClick={() => setActiveLink(item.name)}
+                    onClick={() => {
+                      setActiveLink(item.name);
+                      setnavToggle(false);
+                    }}
                   >
                     {item.name}
                   </a>

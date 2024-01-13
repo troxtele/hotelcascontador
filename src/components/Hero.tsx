@@ -14,7 +14,7 @@ export default function Hero() {
       </div>
       <div className="container">
         <div className="content absolute left-1/2 top-[40%] transform -translate-x-1/2 -translate-y-1/2 text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white w-full flex flex-col justify-center items-center uppercase max-w-screen px-5">
-          <h1 className="large-text text-center">
+          <h1 className="large-text text-center shadow-text">
             <span>H</span>oliday <span>C</span>ottage <span>I</span>n{" "}
             <span>M</span>allorca
           </h1>

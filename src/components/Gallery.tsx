@@ -8,42 +8,49 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/grid";
 
+import ImagePopup from "@/components/ImagePopup";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-("");
+
 // impo"t "swiper/css/effect-"ade";
 import { Navigation, Grid, Pagination } from "swiper/modules";
+import MotionX from "@/ui/MotionX";
 
 const indoorImages = galleryImages.slice(14);
-const outdoor = galleryImages.slice(0, 14);
+const outdoorImages = galleryImages.slice(0, 14);
 
 export default function Gallery() {
   const [active, setActive] = useState(true);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [activePopup, setActivePopup] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
-    <section id="gallery" className="max-w-screen overflow-hidden py-20">
-      <div className="heading">
-        <h2 className="title">
-          <span>G</span>allery
-        </h2>
-        <div className="icon">
-          <FiCamera />
+    <section id="gallery" className="max-w-screen overflow-hidden pt-24">
+      <MotionX delay={0.2}>
+        <div className="heading">
+          <h2 className="title">
+            <span>G</span>allery
+          </h2>
+          <div className="icon">
+            <FiCamera />
+          </div>
         </div>
-      </div>
+      </MotionX>
 
       {/* images */}
       <div className="bottom">
         <div className="toggle flex justify-center w-full my-6">
           <button
             onClick={() => setActive(true)}
-            className={`${active ? "bg-blue-400 text-white" : "text-gray-800"}`}
+            className={`${active ? "bg-primary text-white" : "text-gray-800"}`}
           >
             Outdoor
           </button>
           <button
-            className={`${
-              !active ? "bg-blue-400 text-white" : "text-gray-800"
-            }`}
+            className={`${!active ? "bg-primary text-white" : "text-gray-800"}`}
             onClick={() => setActive(false)}
           >
             Indoor
@@ -56,6 +63,20 @@ export default function Gallery() {
             }`}
           >
             <Swiper
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                },
+                450: {
+                  slidesPerView: 2,
+                },
+                768: {
+                  slidesPerView: 3,
+                },
+                1024: {
+                  slidesPerView: 4,
+                },
+              }}
               grid={{
                 rows: 2,
               }}
@@ -68,12 +89,13 @@ export default function Gallery() {
               modules={[Grid, Pagination, Navigation]}
               className="max-w-screen w-screen h-[400px]"
             >
-              {outdoor.map((image, index) => (
+              {outdoorImages.map((image, index) => (
                 <SwiperSlide
                   key={index + image}
+                  onClick={() => setActiveIndex(index)}
                   className=" rounded-sm overflow-hidden"
                 >
-                  <div className="image">
+                  <div className="image" onClick={() => setActivePopup(true)}>
                     <img className="w-full" src={image} alt="" />
                   </div>
                 </SwiperSlide>
@@ -103,9 +125,16 @@ export default function Gallery() {
               {indoorImages.map((image, index) => (
                 <SwiperSlide
                   key={index + image}
-                  className=" rounded-sm overflow-hidden"
+                  onClick={() => setActiveIndex(index)}
+                  className="cursor-pointer rounded-sm overflow-hidden"
                 >
-                  <div className="image">
+                  <div
+                    className="image"
+                    onClick={() => {
+                      setActivePopup(true);
+                      console.log(4343);
+                    }}
+                  >
                     <img className="w-full" src={image} alt="" />
                   </div>
                 </SwiperSlide>
@@ -114,6 +143,14 @@ export default function Gallery() {
           </div>
         </div>
       </div>
+
+      {/* popup */}
+      <ImagePopup
+        setActive={setActivePopup}
+        active={activePopup}
+        images={active ? outdoorImages : indoorImages}
+        index={activeIndex}
+      />
     </section>
   );
 }
