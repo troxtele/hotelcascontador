@@ -18,7 +18,7 @@ export default function Contact() {
         </MotionX>
 
         {/* contact info */}
-        <div className="contact-info max-w-[70rem] m-auto grid md:grid-cols-2 gap-10 mt-10">
+        <div className="contact-info max-w-[70rem] m-auto grid md:grid-cols-2 gap-10 mt-12">
           <div className="left">
             <div className="img">
               <img className="w-full h-full" src={image} alt="image" />

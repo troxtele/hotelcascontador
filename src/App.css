@@ -159,10 +159,11 @@ section .heading h2 span {
 /* footer section */
 
 footer {
+  background: rgb(56, 189, 248);
   background: linear-gradient(
-    20deg,
-    rgba(59, 130, 246, 0.7) 0%,
-    rgba(96, 165, 250, 1) 100%
+    318deg,
+    rgba(127, 190, 233, 1) 0%
+    rgba(56, 189, 248, 1) 100%,
   );
 }
 
@@ -171,17 +172,17 @@ footer .links svg {
 }
 
 .room .img-height {
- position: relative;
-    flex: 1 0 auto;
-    text-align: center;
-    text-decoration: none;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: all .3s ease-in-out;
-    margin-bottom: 0 !important;
-    overflow: hidden;
-    transition-duration: 480ms;
+  position: relative;
+  flex: 1 0 auto;
+  text-align: center;
+  text-decoration: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 0 !important;
+  overflow: hidden;
+  transition-duration: 480ms;
 }
 
 .room .img-height:hover {

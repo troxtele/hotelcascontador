@@ -29,11 +29,11 @@ export default function Navbar() {
         } `}
       >
         <div className="container">
-          <div className="wrapper flex justify-between items-center">
+          <div className="wrapper flex justify-between items-center gap-6">
             <a href="/#hero" className="main-logo flex gap-1 py-3">
               <img
-                className={`transition-all duration-300  ${
-                  scrolled ? "max-h-[2.1rem]" : "max-h-[3rem]"
+                className={`transition-all duration-300 max-h-[1.8rem]   ${
+                  scrolled ? "lg:max-h-[2.1rem]" : "lg:max-h-[3rem]"
                 }`}
                 src={logo}
                 alt="logo"
@@ -136,7 +136,13 @@ export default function Navbar() {
                       activeLink === item.name
                         ? "border-primary text-primary"
                         : "border-primary/30"
-                    }`}
+                    }
+
+                     ${
+                       navItems.length - 1 === index ? "text-lg !font-bold" : ""
+                     }
+                    
+                      `}
                     onClick={() => {
                       setActiveLink(item.name);
                       setnavToggle(false);

@@ -42,7 +42,7 @@ export default function Gallery() {
 
       {/* images */}
       <div className="bottom">
-        <div className="toggle flex justify-center w-full my-6">
+        <div className="toggle flex justify-center w-full my-12">
           <button
             onClick={() => setActive(true)}
             className={`${active ? "bg-primary text-white" : "text-gray-800"}`}
