@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FiCamera } from "react-icons/fi";
 import galleryImages from "@/data/data.ts";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 // Import Swiper styles
 import "swiper/css";
@@ -96,7 +97,7 @@ export default function Gallery() {
                   className=" rounded-sm overflow-hidden"
                 >
                   <div className="image" onClick={() => setActivePopup(true)}>
-                    <img className="w-full" src={image} alt="" />
+                    <img loading="lazy" className="w-full" src={image} alt="" />
                   </div>
                 </SwiperSlide>
               ))}
@@ -128,14 +129,8 @@ export default function Gallery() {
                   onClick={() => setActiveIndex(index)}
                   className="cursor-pointer rounded-sm overflow-hidden"
                 >
-                  <div
-                    className="image"
-                    onClick={() => {
-                      setActivePopup(true);
-                      console.log(4343);
-                    }}
-                  >
-                    <img className="w-full" src={image} alt="" />
+                  <div className="image" onClick={() => setActivePopup(true)}>
+                    <LazyLoadImage height="100%" width="100%" src={image} />
                   </div>
                 </SwiperSlide>
               ))}
