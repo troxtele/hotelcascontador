@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 export default function MotionX({ delay, children, right, cls } : { delay: number, children: React.ReactNode, right?: boolean, cls?: string }) {
-  const xAxis = right ? 2000 : -2000;
+  const xAxis = right ? 150 : -150;
   return (
     <motion.div
       className={cls ? cls : ""}

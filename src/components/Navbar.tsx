@@ -52,7 +52,7 @@ export default function Navbar() {
                           : "border-transparent"
                       } ${
                         navItems.length - 1 === index
-                          ? "text-lg font-black"
+                          ? "text-lg !font-bold"
                           : ""
                       }
                         ${scrolled ? "py-4" : "py-9"}
