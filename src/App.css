@@ -128,6 +128,7 @@ section .heading h2 span {
 /* Contact section */
 #contact .contact-info .img {
   border-radius: 50% 50% 42% 58% / 38% 68% 32% 62%;
+  overflow: hidden;
 }
 
 #contact .right .title {
