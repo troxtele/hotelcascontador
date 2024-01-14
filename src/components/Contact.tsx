@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { FiMail } from "react-icons/fi";
 import image from "@/assets/images/contact/contact.webp";
 import { TypeAnimation } from "react-type-animation";
 import MotionX from "@/ui/MotionX";
+import ImageLoading from "@/ui/ImageLoading";
+
 export default function Contact() {
+  const [loading, setLoading] = useState(true);
   return (
     <section id="contact" className=" overflow-hidden py-20">
       <div className="container">
@@ -21,7 +25,13 @@ export default function Contact() {
         <div className="contact-info max-w-[70rem] m-auto grid md:grid-cols-2 gap-10 mt-12">
           <div className="left">
             <div className="img">
-              <img className="w-full h-full" src={image} alt="image" />
+              {loading ? <ImageLoading /> : <></>}
+              <img
+                onLoad={() => setLoading(false)}
+                className={`w-full h-full ${loading ? "hidden" : ""}`}
+                src={image}
+                alt="image"
+              />
             </div>
 
             <div className="text text-center text-2xl mt-4">
