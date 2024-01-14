@@ -1,13 +1,31 @@
+import { useEffect, useRef, useState } from "react";
 import video from "@/assets/video/hero.mp4";
-
+import roomImgThree from "@/assets/images/algaida/algaida_retratos_lq-43.webp";
 import { RiArrowDownDoubleLine } from "react-icons/ri";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null!);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
+  useEffect(() => {
+    console.log(videoRef.current);
+    videoRef.current.onloadeddata = () => {
+      setIsVideoPlaying(true);
+    };
+  }, [videoRef]);
+
   return (
     <main id="hero" className="hero relative overflow-hidden">
       {/* background */}
       <div className="bg-video after:absolute after:bg-black/50 after:h-full after:w-full after:inset-0 -mx-44 xs:-mx-36 sm:-mx-30 md:mx-0">
-        <video autoPlay muted loop id="myVideo">
+        <video
+          poster={roomImgThree}
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          id="myVideo"
+        >
           <source src={video} type="video/mp4" />
           Your browser does not support HTML5 video.
         </video>
