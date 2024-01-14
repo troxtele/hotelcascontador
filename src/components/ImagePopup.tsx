@@ -26,7 +26,7 @@ export default function ImagePopup({
   const [data, setData] = useState<string[]>([]);
 
   useEffect(() => {
-    console.log("clicked")
+  
     if (active) {
       document.body.style.overflow = "hidden";
       const sortData = images.slice(index).concat(images.slice(0, index));

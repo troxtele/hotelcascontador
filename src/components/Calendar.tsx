@@ -1,7 +1,11 @@
+import { useState } from "react";
 import MotionX from "@/ui/MotionX";
 import { FaRegCalendarCheck } from "react-icons/fa";
+import LoadingAnimation from "@/ui/LoadingAnimation";
 
 export default function Calendar() {
+  const [loading, setLoading] = useState(true);
+  const [loadBooking, setLoadBooking] = useState(true);
   return (
     <section id="calendar" className="pt-20">
       <div className="container">
@@ -17,25 +21,31 @@ export default function Calendar() {
         </MotionX>
 
         <div className="calendar flex justify-center mt-12">
-          <iframe
-            src="https://www.avaibook.com/widgets_propietarios/loader.php?id=129563&amp;lang=en"
-            style={{
-              width: "100%",
-              maxWidth: "580px",
-              height: "380px",
-              border: "0",
-            }}
-          >
-            Tu navegador no soporta iframes
-          </iframe>
+          <div className="wrap w-full max-w-[580px] h-[380px] border-none">
+            {loading ? <LoadingAnimation /> : <></>}
+            <iframe
+              className={`${loading ? "hidden" : ""}`}
+              onLoad={() => setLoading(false)}
+              src="https://www.avaibook.com/widgets_propietarios/loader.php?id=129563&amp;lang=en"
+              width="100%"
+              height="100%"
+            >
+              Tu navegador no soporta iframes
+            </iframe>
+          </div>
         </div>
       </div>
       <div id="book-now" className="crads pt-16">
-        <iframe
-          src="https://bookonline.pro/es/properties/6835?unidades=1&amp;iframe=1"
-          width="100%"
-          className="h-[2600px] xs:h-[2000px] md:h-[1500px]"
-        ></iframe>
+        <div className="h-[2600px] xs:h-[2000px] md:h-[1500px]">
+          {loadBooking ? <LoadingAnimation /> : <></>}
+          <iframe
+            className={`${loadBooking ? "hidden" : ""}`}
+            onLoad={() => setLoadBooking(false)}
+            src="https://bookonline.pro/es/properties/6835?unidades=1&amp;iframe=1"
+            width="100%"
+            height="100%"
+          ></iframe>
+        </div>
       </div>
     </section>
   );
