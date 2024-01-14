@@ -36,6 +36,10 @@ export default function Guests() {
         airbnbScript.async = true;
         airbnbScript.defer = true;
 
+        bookingScript.onload = () => {
+          setLoading(false);
+        };
+
         bookingRef.current.appendChild(bookingScript);
         airbnbRef.current.appendChild(airbnbScript);
       }
