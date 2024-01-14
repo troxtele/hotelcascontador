@@ -16,6 +16,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // impo"t "swiper/css/effect-"ade";
 import { Navigation, Grid, Pagination } from "swiper/modules";
 import MotionX from "@/ui/MotionX";
+import LoadingAnimation from "@/ui/LoadingAnimation";
 
 const indoorImages = galleryImages.slice(14);
 const outdoorImages = galleryImages.slice(0, 14);
@@ -26,6 +27,7 @@ export default function Gallery() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [activePopup, setActivePopup] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   return (
     <section id="gallery" className="max-w-screen overflow-hidden pt-24">
@@ -95,8 +97,15 @@ export default function Gallery() {
                   onClick={() => setActiveIndex(index)}
                   className=" rounded-sm overflow-hidden"
                 >
-                  <div className="image" onClick={() => setActivePopup(true)}>
-                    <img loading="lazy" className="w-full" src={image} alt="" />
+                  <div className="image h-full" onClick={() => setActivePopup(true)}>
+                    {loading ? <LoadingAnimation /> : <></>}
+                    <img
+                    
+                      onLoad={() => setLoading(false)}
+                      className={`w-full h-full ${loading ? "hidden" : ""}`}
+                      src={image}
+                      alt=""
+                    />
                   </div>
                 </SwiperSlide>
               ))}
