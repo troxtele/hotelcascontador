@@ -1,18 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import video from "@/assets/video/hero.mp4";
 import roomImgThree from "@/assets/images/algaida/algaida_retratos_lq-43.webp";
 import { RiArrowDownDoubleLine } from "react-icons/ri";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null!);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  // const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
-  useEffect(() => {
-    console.log(videoRef.current);
-    videoRef.current.onloadeddata = () => {
-      setIsVideoPlaying(true);
-    };
-  }, [videoRef]);
+  // useEffect(() => {
+  //   console.log(videoRef.current);
+  //   videoRef.current.onloadeddata = () => {
+  //     setIsVideoPlaying(true);
+  //   };
+  // }, [videoRef]);
 
   return (
     <main id="hero" className="hero relative overflow-hidden">
