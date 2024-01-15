@@ -32,7 +32,7 @@ export default function Gallery() {
   const [loadIndoor, setLoadIndoor] = useState(false);
 
   useEffect(() => {
-    if (active) {
+    if (!active) {
       setLoadIndoor(true);
     }
   }, [active]);
