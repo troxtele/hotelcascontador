@@ -97,14 +97,18 @@ export default function Gallery() {
                   onClick={() => setActiveIndex(index)}
                   className=" rounded-sm overflow-hidden"
                 >
-                  <div className="image h-full" onClick={() => setActivePopup(true)}>
+                  <div
+                    className="image h-full"
+                    onClick={() => setActivePopup(true)}
+                  >
                     {loading ? <LoadingAnimation /> : <></>}
                     <img
-                    
                       onLoad={() => setLoading(false)}
-                      className={`w-full h-full ${loading ? "hidden" : ""}`}
+                      className={`w-[inherit] h-[inherit] ${
+                        loading ? "hidden" : ""
+                      }`}
                       src={image}
-                      alt=""
+                      alt={`outdoor-image-${index}`}
                     />
                   </div>
                 </SwiperSlide>
@@ -138,7 +142,11 @@ export default function Gallery() {
                   className="cursor-pointer rounded-sm overflow-hidden"
                 >
                   <div className="image" onClick={() => setActivePopup(true)}>
-                    <img className="w-full" src={image} alt="" />
+                    <img
+                      className="h-[inherit] w-[inherit]"
+                      src={image}
+                      alt={`indoor-image-${index}`}
+                    />
                   </div>
                 </SwiperSlide>
               ))}

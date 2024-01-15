@@ -14,6 +14,7 @@ export default function Footer() {
             href="https://www.instagram.com/cas.contador/"
             target="_blank"
             rel="nofollow noopener"
+            aria-label="instagram"
           >
             <IoLogoInstagram />
           </a>
@@ -21,6 +22,7 @@ export default function Footer() {
             href="https://www.facebook.com/cas.contador"
             target="_blank"
             rel="nofollow noopener"
+            aria-label="facebook"
           >
             <IoLogoFacebook />
           </a>
@@ -28,6 +30,7 @@ export default function Footer() {
             href="https://goo.gl/maps/zbWYfRBGD9iTpngP9"
             target="_blank"
             rel="nofollow noopener"
+            aria-label="google"
           >
             <IoLogoGoogle />
           </a>
@@ -46,6 +49,7 @@ export default function Footer() {
           href="https://wa.me/34610223701"
           target="_blank"
           rel="nofollow noopener"
+          aria-aria-label="whatsapp"
         >
           <IoLogoWhatsapp />
         </a>

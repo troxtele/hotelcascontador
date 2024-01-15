@@ -24,6 +24,7 @@ export default function Calendar() {
           <div className="wrap w-full max-w-[580px] h-[380px] border-none">
             {loading ? <LoadingAnimation /> : <></>}
             <iframe
+              title="calendar"
               className={`${loading ? "hidden" : ""}`}
               onLoad={() => setLoading(false)}
               src="https://www.avaibook.com/widgets_propietarios/loader.php?id=129563&amp;lang=en"
@@ -39,6 +40,7 @@ export default function Calendar() {
         <div className="h-[2600px] xs:h-[2000px] md:h-[1500px]">
           {loadBooking ? <LoadingAnimation /> : <></>}
           <iframe
+            title="book-now"
             className={`${loadBooking ? "hidden" : ""}`}
             onLoad={() => setLoadBooking(false)}
             src="https://bookonline.pro/es/properties/6835?unidades=1&amp;iframe=1"

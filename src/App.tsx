@@ -18,7 +18,13 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <Suspense fallback={<LoadingAnimation />}>
+      <Suspense
+        fallback={
+          <div className="container">
+            <LoadingAnimation />
+          </div>
+        }
+      >
         <Calendar />
       </Suspense>
       <Gallery />

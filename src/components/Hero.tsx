@@ -37,7 +37,7 @@ export default function Hero() {
             <span>M</span>allorca
           </h1>
 
-          <a href="/#gallery" className="arrow mt-6">
+          <a href="/#gallery" aria-label="arrow" className="arrow mt-6">
             <RiArrowDownDoubleLine />
           </a>
         </div>
