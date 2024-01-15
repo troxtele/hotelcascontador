@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiCamera } from "react-icons/fi";
 import galleryImages from "@/data/data.ts";
 
@@ -28,6 +28,13 @@ export default function Gallery() {
   const [activePopup, setActivePopup] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [loadIndoor, setLoadIndoor] = useState(false);
+
+  useEffect(() => {
+    if (active) {
+      setLoadIndoor(true);
+    }
+  }, [active]);
 
   return (
     <section id="gallery" className="max-w-screen overflow-hidden pt-24">
@@ -58,6 +65,7 @@ export default function Gallery() {
             Indoor
           </button>
         </div>
+
         <div className="images relative max-w-screen w-screen h-[400px]">
           <div
             className={`outdoor absolute left-0 right-0 top-0 bottom-0 transition-all duration-300 ${
@@ -98,7 +106,7 @@ export default function Gallery() {
                   className=" rounded-sm overflow-hidden"
                 >
                   <div
-                    className="image h-full"
+                    className="image h-full w-full"
                     onClick={() => setActivePopup(true)}
                   >
                     {loading ? <LoadingAnimation /> : <></>}
@@ -117,41 +125,45 @@ export default function Gallery() {
           </div>
 
           {/* indoor */}
-          <div
-            className={`indoor absolute left-0 right-0 top-0 transition-all duration-200 ${
-              !active ? "opacity-300 visible" : "opacity-0 invisible"
-            }`}
-          >
-            <Swiper
-              grid={{
-                rows: 2,
-              }}
-              spaceBetween={10}
-              pagination={{
-                clickable: true,
-              }}
-              navigation={true}
-              slidesPerView={4}
-              modules={[Grid, Pagination, Navigation]}
-              className="max-w-screen w-screen h-[400px]"
+          {loadIndoor ? (
+            <div
+              className={`indoor absolute left-0 right-0 top-0 transition-all duration-200 ${
+                !active ? "opacity-300 visible" : "opacity-0 invisible"
+              }`}
             >
-              {indoorImages.map((image, index) => (
-                <SwiperSlide
-                  key={index + image}
-                  onClick={() => setActiveIndex(index)}
-                  className="cursor-pointer rounded-sm overflow-hidden"
-                >
-                  <div className="image" onClick={() => setActivePopup(true)}>
-                    <img
-                      className="h-[inherit] w-[inherit]"
-                      src={image}
-                      alt={`indoor-image-${index}`}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+              <Swiper
+                grid={{
+                  rows: 2,
+                }}
+                spaceBetween={10}
+                pagination={{
+                  clickable: true,
+                }}
+                navigation={true}
+                slidesPerView={4}
+                modules={[Grid, Pagination, Navigation]}
+                className="max-w-screen w-screen h-[400px]"
+              >
+                {indoorImages.map((image, index) => (
+                  <SwiperSlide
+                    key={index + image}
+                    onClick={() => setActiveIndex(index)}
+                    className="cursor-pointer rounded-sm overflow-hidden"
+                  >
+                    <div className="image" onClick={() => setActivePopup(true)}>
+                      <img
+                        className="h-[inherit] w-[inherit]"
+                        src={image}
+                        alt={`indoor-image-${index}`}
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          ) : (
+            <> </>
+          )}
         </div>
       </div>
 
