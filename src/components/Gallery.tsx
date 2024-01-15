@@ -51,6 +51,7 @@ export default function Gallery() {
 
       {/* images */}
       <div className="bottom">
+        {/* buttons */}
         <div className="toggle flex justify-center w-full my-12">
           <button
             onClick={() => setActive(true)}
@@ -66,6 +67,7 @@ export default function Gallery() {
           </button>
         </div>
 
+        {/* images */}
         <div className="images relative max-w-screen w-screen h-[400px]">
           <div
             className={`outdoor absolute left-0 right-0 top-0 bottom-0 transition-all duration-300 ${
@@ -132,6 +134,20 @@ export default function Gallery() {
               }`}
             >
               <Swiper
+                breakpoints={{
+                  0: {
+                    slidesPerView: 1,
+                  },
+                  450: {
+                    slidesPerView: 2,
+                  },
+                  768: {
+                    slidesPerView: 3,
+                  },
+                  1024: {
+                    slidesPerView: 4,
+                  },
+                }}
                 grid={{
                   rows: 2,
                 }}

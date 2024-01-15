@@ -17,7 +17,7 @@ export default function Hero() {
   return (
     <main id="hero" className="hero relative overflow-hidden">
       {/* background */}
-      <div className="bg-video after:absolute after:bg-black/50 after:h-full after:w-full after:inset-0 -mx-44 xs:-mx-36 sm:-mx-30 md:mx- h-screen">
+      <div className="bg-video after:absolute after:bg-black/50 after:h-full after:w-full after:inset-0 -mx-44 xs:-mx-36 sm:-mx-30 md:mx- md:h-screen">
         <video
           poster={roomImgThree}
           ref={videoRef}
