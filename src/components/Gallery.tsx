@@ -17,6 +17,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Grid, Pagination } from "swiper/modules";
 import MotionX from "@/ui/MotionX";
 import LoadingAnimation from "@/ui/LoadingAnimation";
+import FadeIn from "@/ui/fadeIn";
 
 const indoorImages = galleryImages.slice(14);
 const outdoorImages = galleryImages.slice(0, 14);
@@ -68,69 +69,11 @@ export default function Gallery() {
         </div>
 
         {/* images */}
-        <div className="images relative max-w-screen w-screen h-[400px]">
-          <div
-            className={`outdoor absolute left-0 right-0 top-0 bottom-0 transition-all duration-300 ${
-              active ? "opacity-100 visible" : "opacity-0 invisible"
-            }`}
-          >
-            <Swiper
-              breakpoints={{
-                0: {
-                  slidesPerView: 1,
-                },
-                450: {
-                  slidesPerView: 2,
-                },
-                768: {
-                  slidesPerView: 3,
-                },
-                1024: {
-                  slidesPerView: 4,
-                },
-              }}
-              grid={{
-                rows: 2,
-              }}
-              spaceBetween={10}
-              pagination={{
-                clickable: true,
-              }}
-              navigation={true}
-              slidesPerView={4}
-              modules={[Grid, Pagination, Navigation]}
-              className="max-w-screen w-screen h-[400px]"
-            >
-              {outdoorImages.map((image, index) => (
-                <SwiperSlide
-                  key={index + image}
-                  onClick={() => setActiveIndex(index)}
-                  className=" rounded-sm overflow-hidden"
-                >
-                  <div
-                    className="image h-full w-full"
-                    onClick={() => setActivePopup(true)}
-                  >
-                    {loading ? <LoadingAnimation /> : <></>}
-                    <img
-                      onLoad={() => setLoading(false)}
-                      className={`w-[inherit] h-[inherit] ${
-                        loading ? "hidden" : ""
-                      }`}
-                      src={image}
-                      alt={`outdoor-image-${index}`}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-
-          {/* indoor */}
-          {loadIndoor ? (
+        <FadeIn>
+          <div className="images relative max-w-screen w-screen h-[400px]">
             <div
-              className={`indoor absolute left-0 right-0 top-0 transition-all duration-200 ${
-                !active ? "opacity-300 visible" : "opacity-0 invisible"
+              className={`outdoor absolute left-0 right-0 top-0 bottom-0 transition-all duration-300 ${
+                active ? "opacity-100 visible" : "opacity-0 invisible"
               }`}
             >
               <Swiper
@@ -160,27 +103,90 @@ export default function Gallery() {
                 modules={[Grid, Pagination, Navigation]}
                 className="max-w-screen w-screen h-[400px]"
               >
-                {indoorImages.map((image, index) => (
+                {outdoorImages.map((image, index) => (
                   <SwiperSlide
                     key={index + image}
                     onClick={() => setActiveIndex(index)}
-                    className="cursor-pointer rounded-sm overflow-hidden"
+                    className=" rounded-sm overflow-hidden"
                   >
-                    <div className="image" onClick={() => setActivePopup(true)}>
+                    <div
+                      className="image h-full w-full"
+                      onClick={() => setActivePopup(true)}
+                    >
+                      {loading ? <LoadingAnimation /> : <></>}
                       <img
-                        className="h-[inherit] w-[inherit]"
+                        onLoad={() => setLoading(false)}
+                        className={`w-[inherit] h-[inherit] ${
+                          loading ? "hidden" : ""
+                        }`}
                         src={image}
-                        alt={`indoor-image-${index}`}
+                        alt={`outdoor-image-${index}`}
                       />
                     </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
             </div>
-          ) : (
-            <> </>
-          )}
-        </div>
+
+            {/* indoor */}
+            {loadIndoor ? (
+              <div
+                className={`indoor absolute left-0 right-0 top-0 transition-all duration-200 ${
+                  !active ? "opacity-300 visible" : "opacity-0 invisible"
+                }`}
+              >
+                <Swiper
+                  breakpoints={{
+                    0: {
+                      slidesPerView: 1,
+                    },
+                    450: {
+                      slidesPerView: 2,
+                    },
+                    768: {
+                      slidesPerView: 3,
+                    },
+                    1024: {
+                      slidesPerView: 4,
+                    },
+                  }}
+                  grid={{
+                    rows: 2,
+                  }}
+                  spaceBetween={10}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  navigation={true}
+                  slidesPerView={4}
+                  modules={[Grid, Pagination, Navigation]}
+                  className="max-w-screen w-screen h-[400px]"
+                >
+                  {indoorImages.map((image, index) => (
+                    <SwiperSlide
+                      key={index + image}
+                      onClick={() => setActiveIndex(index)}
+                      className="cursor-pointer rounded-sm overflow-hidden"
+                    >
+                      <div
+                        className="image"
+                        onClick={() => setActivePopup(true)}
+                      >
+                        <img
+                          className="h-[inherit] w-[inherit]"
+                          src={image}
+                          alt={`indoor-image-${index}`}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+            ) : (
+              <> </>
+            )}
+          </div>
+        </FadeIn>
       </div>
 
       {/* popup */}
