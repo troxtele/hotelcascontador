@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import logo from "../assets/images/logo.webp";
 
@@ -20,6 +20,14 @@ export default function Navbar() {
     if (window.scrollY > 0) setScrolled(true);
     else setScrolled(false);
   };
+
+  useEffect(() => {
+    if (navToggle) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [navToggle]);
 
   return (
     <>

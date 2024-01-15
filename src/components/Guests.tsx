@@ -62,7 +62,7 @@ export default function Guests() {
         </MotionX>
 
         {/* rating */}
-        <div className="rating">
+        <div className="rating mt-12">
           <div className="toggle-btn  flex gap-12 justify-center">
             <div className="wrap flex gap-12 relative">
               <button className="booking" onClick={() => setToggle("booking")}>

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import video from "@/assets/video/hero.mp4";
-import roomImgThree from "@/assets/images/algaida/algaida_retratos_lq-43.webp";
+import poster from "@/assets/video/poster.webp";
 import { RiArrowDownDoubleLine } from "react-icons/ri";
 
 export default function Hero() {
@@ -18,14 +18,7 @@ export default function Hero() {
     <main id="hero" className="hero relative overflow-hidden">
       {/* background */}
       <div className="bg-video after:absolute after:bg-black/50 after:h-full after:w-full after:inset-0 -mx-44 xs:-mx-36 sm:-mx-30 md:mx- md:h-screen">
-        <video
-          poster={roomImgThree}
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          id="myVideo"
-        >
+        <video poster={poster} ref={videoRef} autoPlay muted loop id="myVideo">
           <source src={video} type="video/mp4" />
           Your browser does not support HTML5 video.
         </video>
