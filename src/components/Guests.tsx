@@ -28,7 +28,7 @@ export default function Guests() {
 
         {/* rating */}
         <FadeIn>
-          <div className="rating mt-12">
+          <div className="rating mt-12 max-h-[40rem]">
             <div className="toggle-btn flex gap-12 justify-center">
               <div className="wrap flex gap-12 relative">
                 <button
