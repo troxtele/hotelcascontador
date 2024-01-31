@@ -14,7 +14,7 @@ export default function Room() {
   return (
     <section id="room" className="room pt-20">
       <div className="container">
-        <MotionX delay={0.2}>
+        <MotionX>
           <div className="heading">
             <h2 className="title">
               <span>R</span>ooms

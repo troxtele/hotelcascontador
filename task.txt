@@ -1,0 +1,3 @@
+Things to change:
+- Add fade in fade out to all sections (should work on scroll, so when the section is on viewport)(The headers of the sections should slide in and fade)
+

@@ -1,5 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -26,7 +28,6 @@ export default function ImagePopup({
   const [data, setData] = useState<string[]>([]);
 
   useEffect(() => {
-  
     if (active) {
       document.body.style.overflow = "hidden";
       const sortData = images.slice(index).concat(images.slice(0, index));
@@ -45,26 +46,25 @@ export default function ImagePopup({
         active ? "visible opacity-100" : "invisible opacity-0"
       }`}
     >
-      {/* close */}
-      <div
-        onClick={() => {
-          setActive(false);
-        }}
-        className="close absolute right-[5%] top-[5%] z-[99999] cursor-pointer sm:right-6 sm:top-10"
-      >
-        <IoMdClose className="text-5xl text-white" />
-      </div>
       {/* data */}
-      <div className="wrap relative flex w-full items-center justify-center">
+      <div className="wrap relative w-full max-w-[80rem] m-auto">
+        {/* close */}
+        <div
+          onClick={() => {
+            setActive(false);
+          }}
+          className="close absolute right-0 -top-14 z-[99999] cursor-pointer sm:-right-14 sm:top-2"
+        >
+          <IoMdClose className="text-5xl text-white" />
+        </div>
         <Swiper
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
-          navigation={true}
           modules={[Navigation]}
           grabCursor={true}
           loop={true}
-          className="relative z-10 max-w-[80rem]"
+          className="relative z-10 w-[inherit] h-full max-h-[calc(100vh-5rem)]"
         >
           {data?.map((item, i) => (
             <SwiperSlide key={index + i} className="w-full">
@@ -72,7 +72,27 @@ export default function ImagePopup({
             </SwiperSlide>
           ))}
         </Swiper>
-      
+
+        <div className="navigation-btns absolute sm:static left-1/2 sm:left-[unset] transform -translate-x-1/2 sm:transform-none -bottom-[2.7rem] flex items-center gap-2.5 text-white">
+          <div
+            onClick={() => {
+              swiperRef.current.swipeDirection = "prev";
+              swiperRef.current.slidePrev();
+            }}
+            className="prev -left-[3.5rem] top-1/2 z-10 h-6 w-6 transform cursor-pointer text-3xl sm:absolute sm:h-8 sm:w-8 md:h-10 md:w-10 xl:-left-[3.5rem]"
+          >
+            <IoIosArrowBack />
+          </div>
+          <div
+            onClick={() => {
+              swiperRef.current.swipeDirection = "next";
+              swiperRef.current.slideNext();
+            }}
+            className="next -right-[3.5rem] top-1/2 z-10 h-6 w-6 transform cursor-pointer text-3xl sm:absolute sm:h-8 sm:w-8 md:h-10 md:w-10 xl:-right-[3.5rem]"
+          >
+            <IoIosArrowForward />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -32,23 +32,25 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`z-50 sticky left-0 top-0 right-0 bg-white/80 backdrop-blur-3xl transition-all duration-300 ${
+        className={`z-50 sticky left-0 top-0 right-0 bg-white transition-all duration-300 ${
           scrolled ? "drop-shadow-xl" : ""
         } `}
       >
         <div className="container">
-          <div className="wrapper flex justify-between items-center gap-6">
-            <a href="/#hero" className="main-logo flex gap-1 py-3">
+          <div className="wrapper flex justify-between gap-6 h-full">
+            <a href="/#hero" className="main-logo flex justify-center items-center gap-1 py-5 min-h-full">
               <img
-                className={`transition-all duration-300 max-h-[1.8rem]   ${
-                  scrolled ? "lg:max-h-[2.1rem]" : "lg:max-h-[3rem]"
+                className={`transition-all duration-500  ${
+                  scrolled
+                    ? "max-h-[2rem] lg:max-h-[2.1rem]"
+                    : "max-h-[2.5rem] lg:max-h-[3rem]"
                 }`}
                 src={logo}
                 alt="logo"
               />
             </a>
             {/* Nav */}
-            <nav className=" text-stone-600 flex justify-center items-center">
+            <nav className="min-h-full text-stone-600 flex justify-center items-center">
               <ul className="hidden lg:flex gap-6 justify-center text-[0.95rem] uppercase h-full">
                 {navItems.map((item, index) => (
                   <li key={index + item.name} className="min-h-full">

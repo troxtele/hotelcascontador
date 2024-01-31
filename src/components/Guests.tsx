@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import { ElfsightWidget } from "react-elfsight-widget";
 import bookingImg from "@/assets/images/guests/bookinglogo-150x142.webp";
 import airbnbImg from "@/assets/images/guests/airbnblogo-150x142.webp";
 import { TiArrowSortedDown } from "react-icons/ti";
@@ -7,51 +8,14 @@ import MotionX from "@/ui/MotionX";
 import LoadingAnimation from "@/ui/LoadingAnimation";
 import FadeIn from "@/ui/fadeIn";
 export default function Guests() {
-  const [isMounted, setIsMounted] = useState(true);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  const [toggle, setToggle] = useState("booking"); // ["booking", "airbnb"
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const bookingRef = useRef(null) as any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const airbnbRef = useRef(null) as any;
-
-  useEffect(() => {
-    setIsMounted((prev) => {
-      if (prev) {
-        const bookingScript = document.createElement("script");
-        const airbnbScript = document.createElement("script");
-        bookingScript.setAttribute(
-          "src",
-          "https://cdn.trustindex.io/loader.js?8acea89240201842ad966ec69fe"
-        );
-        airbnbScript.setAttribute(
-          "src",
-          "https://cdn.trustindex.io/loader.js?8acea89240201842ad966ec69fe"
-        );
-
-        bookingScript.async = true;
-        bookingScript.defer = true;
-
-        airbnbScript.async = true;
-        airbnbScript.defer = true;
-
-        bookingScript.onload = () => {
-          setLoading(false);
-        };
-
-        bookingRef.current.appendChild(bookingScript);
-        airbnbRef.current.appendChild(airbnbScript);
-      }
-      return false;
-    });
-  }, [isMounted]);
+  const [toggle, setToggle] = useState("booking"); // ["booking", "airbnb"]
 
   return (
-    <section id="guests" className="guests pt-20">
+    <section id="guests" className="guests pt-20 overflow-hidden">
       <div className="container">
-        <MotionX delay={0.2}>
+        <MotionX>
           <div className="heading">
             <h2 className="title">
               <span>G</span>uests
@@ -65,7 +29,7 @@ export default function Guests() {
         {/* rating */}
         <FadeIn>
           <div className="rating mt-12">
-            <div className="toggle-btn  flex gap-12 justify-center">
+            <div className="toggle-btn flex gap-12 justify-center">
               <div className="wrap flex gap-12 relative">
                 <button
                   className="booking"
@@ -90,27 +54,37 @@ export default function Guests() {
               </div>
             </div>
 
-            <div className="loading-animation h-20">
+            {/* <div className="loading-animation h-20">
               {loading ? <LoadingAnimation /> : <></>}
-            </div>
+            </div> */}
             {/* widgets */}
             <div className={`widgets mt-12 ${loading ? "hidden" : ""}`}>
               <div
-                ref={bookingRef}
                 className={`booking transition-all duration-300 ${
                   toggle === "booking"
-                    ? "block opacity-100"
-                    : "hidden opacity-0 pointer-events-none"
+                    ? "visible opacity-100"
+                    : "invisible opacity-0 pointer-events-none"
                 }`}
-              ></div>
+              >
+                <ElfsightWidget
+                  widgetId="471c2567-fc50-4d8b-b46c-0aef6e8f5276F"
+                  lazy
+                  modern
+                />
+              </div>
               <div
-                ref={airbnbRef}
-                className={`airbnb transition-all duration-300 ${
+                className={`airbnb transition-all transform -translate-y-full duration-300${
                   toggle === "airbnb"
-                    ? "block opacity-100"
-                    : "hidden opacity-0 pointer-events-none"
+                    ? "visible opacity-100"
+                    : "invisible opacity-0 pointer-events-none"
                 }`}
-              ></div>
+              >
+                <ElfsightWidget
+                  widgetId="0842e0c0-7524-46d9-b4ef-daae89153573F"
+                  lazy
+                  modern
+                />
+              </div>
             </div>
           </div>
         </FadeIn>

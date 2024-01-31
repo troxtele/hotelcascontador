@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FiCamera } from "react-icons/fi";
 import galleryImages from "@/data/data.ts";
+import { TiArrowSortedDown } from "react-icons/ti";
 
 // Import Swiper styles
 import "swiper/css";
@@ -39,37 +40,52 @@ export default function Gallery() {
 
   return (
     <section id="gallery" className="max-w-screen overflow-hidden pt-24">
-      <MotionX delay={0.2}>
-        <div className="heading">
+      <div className="heading">
+        <MotionX>
           <h2 className="title">
             <span>G</span>allery
           </h2>
-          <div className="icon">
-            <FiCamera />
-          </div>
+        </MotionX>
+        <div className="icon">
+          <FiCamera />
         </div>
-      </MotionX>
+      </div>
 
       {/* images */}
       <div className="bottom">
         {/* buttons */}
-        <div className="toggle flex justify-center w-full my-12">
-          <button
-            onClick={() => setActive(true)}
-            className={`${active ? "bg-primary text-white" : "text-gray-800"}`}
-          >
-            Outdoor
-          </button>
-          <button
-            className={`${!active ? "bg-primary text-white" : "text-gray-800"}`}
-            onClick={() => setActive(false)}
-          >
-            Indoor
-          </button>
-        </div>
-
-        {/* images */}
         <FadeIn>
+          <div className="toggle flex justify-center w-full my-12">
+            {/* arrow */}
+            <div className="wrap relative ">
+              <div
+                className={`arrow w-full transition-all duration-500 absolute top-[110%]  text-4xl text-primary ${
+                  active ? "left-[20%]" : "left-[70%]"
+                }`}
+              >
+                <TiArrowSortedDown />
+              </div>
+              <button
+                onClick={() => setActive(true)}
+                className={`${
+                  active ? "bg-primary text-white" : "text-gray-800"
+                }`}
+              >
+                Outdoor
+              </button>
+              <button
+                className={`${
+                  !active ? "bg-primary text-white" : "text-gray-800"
+                }`}
+                onClick={() => setActive(false)}
+              >
+                Indoor
+              </button>
+            </div>
+          </div>
+
+          {/* images */}
+
           <div className="images relative max-w-screen w-screen h-[400px]">
             <div
               className={`outdoor absolute left-0 right-0 top-0 bottom-0 transition-all duration-300 ${
@@ -94,12 +110,13 @@ export default function Gallery() {
                 grid={{
                   rows: 2,
                 }}
-                spaceBetween={10}
+                spaceBetween={5}
                 pagination={{
                   clickable: true,
                 }}
                 navigation={true}
                 slidesPerView={4}
+                loop={true}
                 modules={[Grid, Pagination, Navigation]}
                 className="max-w-screen w-screen h-[400px]"
               >

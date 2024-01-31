@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Guests from "./components/Guests";
 import { lazy, Suspense } from "react";
 import LoadingAnimation from "./ui/LoadingAnimation";
+import Whatsapp from "./components/Whatsapp";
 
 const Calendar = lazy(() => import("./components/Calendar"));
 
@@ -33,6 +34,7 @@ function App() {
       <Contact />
       <Map />
       <Footer />
+      <Whatsapp />
     </>
   );
 }

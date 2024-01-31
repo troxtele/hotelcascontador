@@ -98,12 +98,23 @@ section .heading h2 span {
 /* gallyer section */
 
 .toggle button {
-  @apply px-6 py-2.5 rounded-xl font-bold text-xl uppercase;
+  @apply px-6 py-2.5 rounded-lg font-bold text-xl uppercase transition-all duration-300;
 }
+
 .swiper-button-prev,
 .swiper-button-next {
-  @apply backdrop-blur-xl bg-sky-400/90 rounded-full !min-h-12 !min-w-12 flex;
+  @apply backdrop-blur-xl bg-sky-400/90 rounded-full h-10 w-10 sm:!h-12 sm:!w-12 flex justify-center items-center;
 }
+#gallery .swiper-button-prev,
+#gallery .swiper-button-next {
+  @apply !opacity-40 md:!opacity-100 h-9 w-9 sm:!h-12 sm:!w-12;
+}
+
+.image-popup .prev,
+.image-popup .next {
+  @apply backdrop-blur-xl bg-sky-400/90 rounded-full h-9 w-9 sm:!h-12 sm:!w-12 flex justify-center items-center;
+}
+
 .swiper-button-prev {
   @apply !left-[1.3rem];
 }
@@ -162,8 +173,7 @@ footer {
   background: rgb(56, 189, 248);
   background: linear-gradient(
     318deg,
-    rgba(127, 190, 233, 1) 0%
-    rgba(56, 189, 248, 1) 100%,
+    rgba(127, 190, 233, 1) 0% rgba(56, 189, 248, 1) 100%
   );
 }
 
@@ -187,4 +197,9 @@ footer .links svg {
 
 .room .img-height:hover {
   flex: 5 0 auto;
+}
+
+/* widgets */
+.es-widget-title-container {
+  display: none;
 }

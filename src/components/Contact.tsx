@@ -11,7 +11,7 @@ export default function Contact() {
   return (
     <section id="contact" className=" overflow-hidden py-20">
       <div className="container">
-        <MotionX delay={0.2}>
+        <MotionX>
           <div className="heading">
             <h2 className="title">
               <span>C</span>ontact

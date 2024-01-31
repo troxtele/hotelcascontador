@@ -10,7 +10,7 @@ export default function Calendar() {
   return (
     <section id="calendar" className="pt-20">
       <div className="container">
-        <MotionX delay={0.2}>
+        <MotionX>
           <div className="heading">
             <h2 className="title">
               <span>C</span>alendar
@@ -22,7 +22,7 @@ export default function Calendar() {
         </MotionX>
 
         <FadeIn>
-          <div className="calendar flex justify-center mt-12">
+          <div className="calendar flex justify-center mt-12 h-[380px]">
             <div className="wrap w-full max-w-[580px] h-[380px] border-none">
               {loading ? <LoadingAnimation /> : <></>}
               <iframe
@@ -40,21 +40,19 @@ export default function Calendar() {
         </FadeIn>
       </div>
 
-      <FadeIn>
-        <div id="book-now" className="crads pt-16">
-          <div className="h-[2600px] xs:h-[2000px] md:h-[1500px]">
-            {loadBooking ? <LoadingAnimation /> : <></>}
-            <iframe
-              title="book-now"
-              className={`${loadBooking ? "hidden" : ""}`}
-              onLoad={() => setLoadBooking(false)}
-              src="https://bookonline.pro/es/properties/6835?unidades=1&amp;iframe=1"
-              width="100%"
-              height="100%"
-            ></iframe>
-          </div>
+      <div id="book-now" className="crads pt-16">
+        <div className="h-[2600px] xs:h-[2000px] md:h-[1500px]">
+          {loadBooking ? <LoadingAnimation /> : <></>}
+          <iframe
+            title="book-now"
+            className={`${loadBooking ? "hidden" : ""}`}
+            onLoad={() => setLoadBooking(false)}
+            src="https://bookonline.pro/es/properties/6835?unidades=1&amp;iframe=1"
+            width="100%"
+            height="100%"
+          ></iframe>
         </div>
-      </FadeIn>
+      </div>
     </section>
   );
 }
