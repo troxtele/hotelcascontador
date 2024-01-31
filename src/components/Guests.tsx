@@ -5,10 +5,10 @@ import airbnbImg from "@/assets/images/guests/airbnblogo-150x142.webp";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { RiDoubleQuotesR } from "react-icons/ri";
 import MotionX from "@/ui/MotionX";
-import LoadingAnimation from "@/ui/LoadingAnimation";
+// import LoadingAnimation from "@/ui/LoadingAnimation";
 import FadeIn from "@/ui/fadeIn";
 export default function Guests() {
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   const [toggle, setToggle] = useState("booking"); // ["booking", "airbnb"]
 
@@ -58,7 +58,7 @@ export default function Guests() {
               {loading ? <LoadingAnimation /> : <></>}
             </div> */}
             {/* widgets */}
-            <div className={`widgets mt-12 ${loading ? "hidden" : ""}`}>
+            <div className={`widgets mt-12`}>
               <div
                 className={`booking transition-all duration-300 ${
                   toggle === "booking"

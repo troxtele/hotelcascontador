@@ -2,7 +2,7 @@ import {
   IoLogoInstagram,
   IoLogoFacebook,
   IoLogoGoogle,
-  IoLogoWhatsapp,
+
 } from "react-icons/io5";
 
 export default function Footer() {
