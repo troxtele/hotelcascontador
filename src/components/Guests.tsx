@@ -67,7 +67,7 @@ export default function Guests() {
                 }`}
               >
                 <ElfsightWidget
-                  widgetId="471c2567-fc50-4d8b-b46c-0aef6e8f5276F"
+                  widgetId="471c2567-fc50-4d8b-b46c-0aef6e8f5276"
                   lazy
                   modern
                 />
@@ -80,7 +80,7 @@ export default function Guests() {
                 }`}
               >
                 <ElfsightWidget
-                  widgetId="0842e0c0-7524-46d9-b4ef-daae89153573F"
+                  widgetId="0842e0c0-7524-46d9-b4ef-daae89153573"
                   lazy
                   modern
                 />
