@@ -9,6 +9,7 @@ export default {
       },
       fontFamily: {
         Montserrat: "Montserrat",
+        openSans: "Open Sans",
       },
       colors: {
         primary: "#7fbee9",

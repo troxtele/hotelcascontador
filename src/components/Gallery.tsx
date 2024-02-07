@@ -39,17 +39,20 @@ export default function Gallery() {
   }, [active]);
 
   return (
-    <section id="gallery" className="max-w-screen overflow-hidden pt-24">
-      <div className="heading">
-        <MotionX>
-          <h2 className="title">
-            <span>G</span>allery
-          </h2>
-        </MotionX>
-        <div className="icon">
-          <FiCamera />
+    <section
+      id="gallery"
+      className="max-w-screen overflow-hidden pt-6 sm:pt-12 md:pt-20"
+    >
+   
+        <div className="heading">
+          <MotionX>
+            <h2 className="title">Gallery</h2>
+          </MotionX>
+          <div className="icon">
+            <FiCamera />
+          </div>
         </div>
-      </div>
+     
 
       {/* images */}
       <div className="bottom">

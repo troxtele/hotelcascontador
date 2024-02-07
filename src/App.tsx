@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -11,27 +12,33 @@ import Guests from "./components/Guests";
 import { lazy, Suspense } from "react";
 import LoadingAnimation from "./ui/LoadingAnimation";
 import Whatsapp from "./components/Whatsapp";
+import BookNow from "./components/BookNow";
 
 const Calendar = lazy(() => import("./components/Calendar"));
 
 function App() {
+  const sections = useRef<HTMLDivElement | null>(null);
+
   return (
     <>
-      <Navbar />
+      <Navbar sections={sections} />
       <Hero />
-      <Suspense
-        fallback={
-          <div className="container">
-            <LoadingAnimation />
-          </div>
-        }
-      >
-        <Calendar />
-      </Suspense>
-      <Gallery />
-      <Room />
-      <Guests />
-      <Contact />
+      <div ref={sections}>
+        <Suspense
+          fallback={
+            <div className="container">
+              <LoadingAnimation />
+            </div>
+          }
+        >
+          <Calendar />
+          <BookNow />
+        </Suspense>
+        <Gallery />
+        <Room />
+        <Guests />
+        <Contact />
+      </div>
       <Map />
       <Footer />
       <Whatsapp />

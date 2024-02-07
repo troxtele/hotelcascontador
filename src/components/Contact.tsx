@@ -11,21 +11,20 @@ export default function Contact() {
   return (
     <section id="contact" className=" overflow-hidden py-20">
       <div className="container">
-        <MotionX>
-          <div className="heading">
-            <h2 className="title">
-              <span>C</span>ontact
-            </h2>
-            <div className="icon">
-              <FiMail />
-            </div>
+        <div className="heading">
+          <MotionX>
+            <h2 className="title">Contact</h2>
+          </MotionX>
+          <div className="icon">
+            <FiMail />
           </div>
-        </MotionX>
+        </div>
 
         {/* contact info */}
-        <FadeIn>
-          <div className="contact-info max-w-[70rem] m-auto grid md:grid-cols-2 gap-10 mt-12">
-            <div className="left">
+
+        <div className="contact-info max-w-[70rem] m-auto grid md:grid-cols-2 gap-10 mt-12">
+          <div className="left">
+            <FadeIn>
               <div className="img">
                 {loading ? <ImageLoading /> : <></>}
                 <img
@@ -35,11 +34,11 @@ export default function Contact() {
                   alt="image"
                 />
               </div>
+            </FadeIn>
 
+            <FadeIn>
               <div className="text text-center text-2xl mt-4">
-                <h4>
-                  <span>H</span>ello
-                </h4>
+                <h4>Hello</h4>
 
                 <div className="type-text font-semibold">
                   <TypeAnimation
@@ -56,51 +55,50 @@ export default function Contact() {
                   />
                 </div>
               </div>
-            </div>
+            </FadeIn>
+          </div>
 
-            {/* right */}
-            <div className="right flex flex-col gap-10 uppercase text-xs text-center">
-              {/* address */}
+          {/* right */}
+          <div className="right flex flex-col gap-10 text-[0.95rem] text-center">
+            {/* address */}
+            <FadeIn>
               <div className="address">
-                <div className="title">
-                  <span>A</span>dress – <span>C</span>as <span>C</span>ontador
-                </div>
-                <div className="text">
-                  <span>P</span>oligono <span>7</span>, <span>P</span>arcela{" "}
-                  <span>119</span>, <span>07210</span> <span>A</span>lgaida,{" "}
-                  <br /> <span>B</span>alearic <span>I</span>slands
+                <div className="title">Adress – Cas Contador</div>
+                <div className="text mt-2">
+                  Poligono 7, Parcela 119, 07210 Algaida, <br /> Balearic
+                  Islands
                 </div>
               </div>
+            </FadeIn>
 
-              {/* telephone */}
+            {/* telephone */}
+            <FadeIn>
               <div className="telephone">
-                <div className="title">
-                  <span>T</span>elephone
-                </div>
-                <div className="numbers grid gap-4 text-base">
+                <div className="title">Telephone</div>
+                <div className="numbers mt-2">
                   <div>(+34) 610 223 701</div>
                   <div>(+34) 609 332 280</div>
                 </div>
               </div>
+            </FadeIn>
 
-              {/* email */}
+            {/* email */}
+            <FadeIn>
               <div className="email">
-                <div className="title">
-                  <span>E</span>mail
-                </div>
+                <div className="title">Email</div>
 
-                <div className="emails grid gap-1">
+                <div className="emails flex flex-col gap-1 justify-center items-center">
                   <a href="mailto: bookings@hotelcascontador.com">
-                    bookings<span>@</span>hotelcascontador.com
+                    bookings@hotelcascontador.com
                   </a>
                   <a href="mailto: pedrojanersl@hotmail.es">
-                    pedrojanersl<span>@</span>hotmail.es
+                    pedrojanersl@hotmail.es
                   </a>
                 </div>
               </div>
-            </div>
+            </FadeIn>
           </div>
-        </FadeIn>
+        </div>
       </div>
     </section>
   );

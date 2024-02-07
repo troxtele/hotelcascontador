@@ -15,7 +15,7 @@ export default function Hero() {
   // }, [videoRef]);
 
   return (
-    <main id="hero" className="hero relative overflow-hidden">
+    <section id="hero" className="hero relative overflow-hidden">
       {/* background */}
       <div className="bg-video after:absolute after:bg-black/50 after:h-full after:w-full after:inset-0 h-screen">
         <video
@@ -32,10 +32,12 @@ export default function Hero() {
         </video>
       </div>
       <div className="container">
-        <div className="content absolute left-1/2 top-[40%] transform -translate-x-1/2 -translate-y-1/2 text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white w-full flex flex-col justify-center items-center uppercase max-w-screen px-5">
-          <h1 className="large-text text-center shadow-text">
-            <span>H</span>oliday <span>C</span>ottage <span>I</span>n{" "}
-            <span>M</span>allorca
+        <div className="content absolute left-1/2 top-[40%] transform -translate-x-1/2 -translate-y-1/2 text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-semibold text-white w-full flex flex-col justify-center items-center max-w-screen px-5 font-Montserrat">
+          <h1
+            style={{ fontVariant: "small-caps" }}
+            className="large-text text-center shadow-text"
+          >
+            Holiday Cottage In Mallorca
           </h1>
 
           <a href="/#gallery" aria-label="arrow" className="arrow mt-6">
@@ -46,6 +48,6 @@ export default function Hero() {
 
       {/* wave */}
       <div className="wave absolute -bottom-10 left-0 right-0"></div>
-    </main>
+    </section>
   );
 }

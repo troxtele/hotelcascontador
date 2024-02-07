@@ -1,20 +1,25 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 import logo from "../assets/images/logo.webp";
 
 const navItems = [
-  { name: "Calendar", link: "/#calendar" },
-  { name: "Gallery", link: "/#gallery" },
-  { name: "Room", link: "/#room" },
-  { name: "Testimonial", link: "/#guests" },
-  { name: "Contact", link: "/#contact" },
-  { name: "Book Now", link: "/#book-now" },
+  { id: "calendar", name: "calendar", link: "/#calendar" },
+  { id: "gallery", name: "gallery", link: "/#gallery" },
+  { id: "room", name: "room", link: "/#room" },
+  { id: "guests", name: "testimonial", link: "/#guests" },
+  { id: "contact", name: "contact", link: "/#contact" },
+  { id: "book-now", name: "book now", link: "/#book-now" },
 ];
 
-export default function Navbar() {
+export default function Navbar({
+  sections,
+}: {
+  sections: React.RefObject<HTMLDivElement>;
+}) {
   const [navToggle, setnavToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState("Calendar");
+  const [activeLink, setActiveLink] = useState("");
 
   window.onscroll = () => {
     if (window.scrollY > 0) setScrolled(true);
@@ -29,20 +34,51 @@ export default function Navbar() {
     }
   }, [navToggle]);
 
+  useEffect(() => {
+    window.addEventListener("scroll", function () {
+      const { current } = sections;
+      const allSections = Array.from(current?.children ?? []);
+
+      allSections.forEach((section) => {
+        const sec = section.getBoundingClientRect();
+
+        if (sec.top + 100 < window.innerHeight && sec.bottom >= 20) {
+          setActiveLink(section.id);
+        }
+      });
+    });
+  }, [sections]);
+
   return (
     <>
       <header
-        className={`z-50 sticky left-0 top-0 right-0 bg-white transition-all duration-300 ${
-          scrolled ? "drop-shadow-xl" : ""
+        className={`z-50 sticky left-0 top-0 right-0 bg-white transition-all duration-300 overflow-hidden ${
+          scrolled ? "nav-shadow" : ""
         } `}
       >
-        <div className="container">
-          <div className="wrapper flex justify-between gap-6 h-full">
-            <a href="/#hero" className="main-logo flex justify-center items-center gap-1 py-5 min-h-full">
+        <motion.div
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              duration: 0.4,
+              delay: 0.3,
+
+              ease: "easeOut",
+            },
+          }}
+          initial={{ opacity: 0, x: 200 }}
+          className="container"
+        >
+          <div className="wrapper flex justify-between gap-6 h-full lg:px-20">
+            <a
+              href="/#hero"
+              className="main-logo flex justify-center items-center gap-1 py-2.5 sm:py-5 min-h-full"
+            >
               <img
                 className={`transition-all duration-500  ${
                   scrolled
-                    ? "max-h-[2rem] lg:max-h-[2.1rem]"
+                    ? "max-h-[1.8rem] lg:max-h-[2.1rem]"
                     : "max-h-[2.5rem] lg:max-h-[3rem]"
                 }`}
                 src={logo}
@@ -56,8 +92,8 @@ export default function Navbar() {
                   <li key={index + item.name} className="min-h-full">
                     <a
                       href={item.link}
-                      className={`flex items-center justify-center h-full font-normal border-b-4 hover:border-primary hover:text-primary transition-all duration-[400ms] cursor-pointer ${
-                        activeLink === item.name
+                      className={`flex items-center justify-center h-full font-normal border-b-4 hover:border-primary hover:text-primary transition-all duration-[400ms] cursor-pointer whitespace-nowrap ${
+                        activeLink === item.id
                           ? "border-primary text-primary"
                           : "border-transparent"
                       } ${
@@ -91,7 +127,7 @@ export default function Navbar() {
               </div>
             </nav>
           </div>
-        </div>
+        </motion.div>
       </header>
 
       {/* mobile version */}
@@ -143,7 +179,7 @@ export default function Navbar() {
                   <a
                     href={item.link}
                     className={`flex py-3 pl-6 w-full font-semibold border-y  transition-all duration-300 ${
-                      activeLink === item.name
+                      activeLink === item.id
                         ? "border-primary text-primary"
                         : "border-primary/30"
                     }

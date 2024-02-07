@@ -6,20 +6,19 @@ import FadeIn from "@/ui/fadeIn";
 
 export default function Calendar() {
   const [loading, setLoading] = useState(true);
-  const [loadBooking, setLoadBooking] = useState(true);
   return (
     <section id="calendar" className="pt-20">
       <div className="container">
-        <MotionX>
-          <div className="heading">
+        <div className="heading">
+          <MotionX>
             <h2 className="title">
               <span>C</span>alendar
             </h2>
-            <div className="icon">
-              <FaRegCalendarCheck />
-            </div>
+          </MotionX>
+          <div className="icon">
+            <FaRegCalendarCheck />
           </div>
-        </MotionX>
+        </div>
 
         <FadeIn>
           <div className="calendar flex justify-center mt-12 h-[380px]">
@@ -38,20 +37,6 @@ export default function Calendar() {
             </div>
           </div>
         </FadeIn>
-      </div>
-
-      <div id="book-now" className="crads pt-16">
-        <div className="h-[2600px] xs:h-[2000px] md:h-[1500px]">
-          {loadBooking ? <LoadingAnimation /> : <></>}
-          <iframe
-            title="book-now"
-            className={`${loadBooking ? "hidden" : ""}`}
-            onLoad={() => setLoadBooking(false)}
-            src="https://bookonline.pro/es/properties/6835?unidades=1&amp;iframe=1"
-            width="100%"
-            height="100%"
-          ></iframe>
-        </div>
       </div>
     </section>
   );

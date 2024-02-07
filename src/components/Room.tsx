@@ -14,16 +14,16 @@ export default function Room() {
   return (
     <section id="room" className="room pt-20">
       <div className="container">
-        <MotionX>
+
           <div className="heading">
-            <h2 className="title">
-              <span>R</span>ooms
-            </h2>
+            <MotionX>
+              <h2 className="title">Rooms</h2>
+            </MotionX>
             <div className="icon">
               <RiHotelBedFill />
             </div>
           </div>
-        </MotionX>
+       
       </div>
       <FadeIn>
         <div className="images max-w-[70rem] w-full m-auto mt-10">

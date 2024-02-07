@@ -15,16 +15,18 @@ export default function Guests() {
   return (
     <section id="guests" className="guests pt-20 overflow-hidden">
       <div className="container">
-        <MotionX>
+     
           <div className="heading">
-            <h2 className="title">
-              <span>G</span>uests
-            </h2>
+            <MotionX>
+              <h2 className="title">
+                <span>G</span>uests
+              </h2>
+            </MotionX>
             <div className="icon">
               <RiDoubleQuotesR />
             </div>
           </div>
-        </MotionX>
+      
 
         {/* rating */}
         <FadeIn>
@@ -67,7 +69,7 @@ export default function Guests() {
                 }`}
               >
                 <ElfsightWidget
-                  widgetId="471c2567-fc50-4d8b-b46c-0aef6e8f5276"
+                  widgetId="471c2567-fc50-4d8b-b46c-0aef6e8f5276F"
                   lazy
                   modern
                 />
@@ -80,7 +82,7 @@ export default function Guests() {
                 }`}
               >
                 <ElfsightWidget
-                  widgetId="0842e0c0-7524-46d9-b4ef-daae89153573"
+                  widgetId="0842e0c0-7524-46d9-b4ef-daae89153573F"
                   lazy
                   modern
                 />
