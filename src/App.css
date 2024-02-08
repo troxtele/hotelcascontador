@@ -63,7 +63,7 @@ body {
 }
 
 section .heading {
-  @apply justify-center items-center flex flex-col gap-4 font-Montserrat;
+  @apply justify-center items-center flex flex-col gap-4 font-Montserrat overflow-hidden;
 }
 section .heading .icon svg {
   @apply h-8 w-8 text-black;

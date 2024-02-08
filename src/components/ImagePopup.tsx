@@ -75,19 +75,13 @@ export default function ImagePopup({
 
         <div className="navigation-btns absolute sm:static left-1/2 sm:left-[unset] transform -translate-x-1/2 sm:transform-none -bottom-[2.7rem] flex items-center gap-2.5 text-white">
           <div
-            onClick={() => {
-              swiperRef.current.swipeDirection = "prev";
-              swiperRef.current.slidePrev();
-            }}
+            onClick={() => swiperRef.current.slidePrev()}
             className="prev -left-[3.5rem] top-1/2 z-10 h-6 w-6 transform cursor-pointer text-3xl sm:absolute sm:h-8 sm:w-8 md:h-10 md:w-10 xl:-left-[3.5rem]"
           >
             <IoIosArrowBack />
           </div>
           <div
-            onClick={() => {
-              swiperRef.current.swipeDirection = "next";
-              swiperRef.current.slideNext();
-            }}
+            onClick={() => swiperRef.current.slideNext()}
             className="next -right-[3.5rem] top-1/2 z-10 h-6 w-6 transform cursor-pointer text-3xl sm:absolute sm:h-8 sm:w-8 md:h-10 md:w-10 xl:-right-[3.5rem]"
           >
             <IoIosArrowForward />
