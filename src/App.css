@@ -85,7 +85,7 @@ section .heading .icon::after {
 }
 
 section .heading h2 {
-  @apply text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl text-black font-bold;
+  @apply text-4xl exs:text-5xl md:text-5xl lg:text-6xl text-black font-bold;
 }
 section .heading h2 {
   font-variant: small-caps;
