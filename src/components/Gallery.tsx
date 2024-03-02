@@ -43,16 +43,14 @@ export default function Gallery() {
       id="gallery"
       className="max-w-screen overflow-hidden pt-6 sm:pt-12 md:pt-20"
     >
-   
-        <div className="heading">
-          <MotionX>
-            <h2 className="title">Gallery</h2>
-          </MotionX>
-          <div className="icon">
-            <FiCamera />
-          </div>
+      <div className="heading">
+        <MotionX>
+          <h2 className="title">Gallery</h2>
+        </MotionX>
+        <div className="icon">
+          <FiCamera />
         </div>
-     
+      </div>
 
       {/* images */}
       <div className="bottom">
@@ -89,7 +87,7 @@ export default function Gallery() {
 
           {/* images */}
 
-          <div className="images relative max-w-screen w-screen h-[400px]">
+          <div className="images relative max-w-screen w-screen h-[490px] 2xl:h-[540px]">
             <div
               className={`outdoor absolute left-0 right-0 top-0 bottom-0 transition-all duration-300 ${
                 active ? "opacity-100 visible" : "opacity-0 invisible"
@@ -106,7 +104,8 @@ export default function Gallery() {
                   768: {
                     slidesPerView: 3,
                   },
-                  1024: {
+
+                  1536: {
                     slidesPerView: 4,
                   },
                 }}
@@ -118,10 +117,9 @@ export default function Gallery() {
                   clickable: true,
                 }}
                 navigation={true}
-                slidesPerView={4}
                 loop={true}
                 modules={[Grid, Pagination, Navigation]}
-                className="max-w-screen w-screen h-[400px]"
+                className="max-w-screen w-screen h-[490px] 2xl:h-[540px]"
               >
                 {outdoorImages.map((image, index) => (
                   <SwiperSlide
@@ -166,21 +164,21 @@ export default function Gallery() {
                     768: {
                       slidesPerView: 3,
                     },
-                    1024: {
+
+                    1536: {
                       slidesPerView: 4,
                     },
                   }}
                   grid={{
                     rows: 2,
                   }}
-                  spaceBetween={10}
                   pagination={{
                     clickable: true,
                   }}
+                  spaceBetween={5}
                   navigation={true}
-                  slidesPerView={4}
                   modules={[Grid, Pagination, Navigation]}
-                  className="max-w-screen w-screen h-[400px]"
+                  className="max-w-screen w-screen h-[490px] 2xl:h-[540px]"
                 >
                   {indoorImages.map((image, index) => (
                     <SwiperSlide

@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import SwiperCore from "swiper";
+
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 // Import Swiper React components
@@ -8,8 +8,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { IoMdClose } from "react-icons/io";
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/pagination";
 // import "swiper/css/effect-fade";
-// import { Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 export default function ImagePopup({
   setActive,
@@ -22,14 +23,15 @@ export default function ImagePopup({
   index: number;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const swiperRef = useRef<SwiperCore | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const swiperRef = useRef() as any;
   const [data, setData] = useState<string[]>([]);
 
   useEffect(() => {
     if (active) {
       document.body.style.overflow = "hidden";
       const sortData = images.slice(index).concat(images.slice(0, index));
-      swiperRef.current?.slideTo(0); // Add null check here
+      swiperRef.current.slideTo(0);
       setData(sortData);
     } else {
       document.body.style.overflow = "unset";
@@ -45,7 +47,7 @@ export default function ImagePopup({
       }`}
     >
       {/* data */}
-      <div className="wrap relative w-full max-w-[80rem] m-auto">
+      <div className="wrap relative w-full lg:max-w-[60rem] xl:max-w-[65rem] 2xl:max-w-[80rem] m-auto">
         {/* close */}
         <div
           onClick={() => {
@@ -56,9 +58,10 @@ export default function ImagePopup({
           <IoMdClose className="text-5xl text-white" />
         </div>
         <Swiper
-          onInit={(swiper) => {
+          onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
+          modules={[Navigation]}
           grabCursor={true}
           loop={true}
           className="relative z-10 w-[inherit] h-full max-h-[calc(100vh-5rem)]"
@@ -72,15 +75,13 @@ export default function ImagePopup({
 
         <div className="navigation-btns absolute sm:static left-1/2 sm:left-[unset] transform -translate-x-1/2 sm:transform-none -bottom-[2.7rem] flex items-center gap-2.5 text-white">
           <div
-            onClick={() => swiperRef.current?.slidePrev()}
+            onClick={() => swiperRef.current.slidePrev()}
             className="prev -left-[3.5rem] top-1/2 z-10 h-6 w-6 transform cursor-pointer text-3xl sm:absolute sm:h-8 sm:w-8 md:h-10 md:w-10 xl:-left-[3.5rem]"
           >
             <IoIosArrowBack />
           </div>
           <div
-            onClick={() => {
-              swiperRef.current?.slideNext();
-            }}
+            onClick={() => swiperRef.current.slideNext()}
             className="next -right-[3.5rem] top-1/2 z-10 h-6 w-6 transform cursor-pointer text-3xl sm:absolute sm:h-8 sm:w-8 md:h-10 md:w-10 xl:-right-[3.5rem]"
           >
             <IoIosArrowForward />
