@@ -17,7 +17,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // impo"t "swiper/css/effect-"ade";
 import { Navigation, Grid, Pagination } from "swiper/modules";
 import MotionX from "@/ui/MotionX";
-import LoadingAnimation from "@/ui/LoadingAnimation";
 import FadeIn from "@/ui/fadeIn";
 
 const indoorImages = galleryImages.slice(14);
@@ -131,7 +130,6 @@ export default function Gallery() {
                       className="image h-full w-full"
                       onClick={() => setActivePopup(true)}
                     >
-                      {loading ? <LoadingAnimation /> : <></>}
                       <img
                         onLoad={() => setLoading(false)}
                         className={`w-full h-full object-cover cursor-pointer ${
