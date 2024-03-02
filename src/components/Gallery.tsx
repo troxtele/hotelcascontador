@@ -87,7 +87,7 @@ export default function Gallery() {
 
           {/* images */}
 
-          <div className="images relative max-w-screen w-screen h-[490px] 2xl:h-[540px]">
+          <div className="images relative max-w-screen w-screen h-[500px] 2xl:h-[540px]">
             <div
               className={`outdoor absolute left-0 right-0 top-0 bottom-0 transition-all duration-300 ${
                 active ? "opacity-100 visible" : "opacity-0 invisible"
@@ -119,7 +119,7 @@ export default function Gallery() {
                 navigation={true}
                 loop={true}
                 modules={[Grid, Pagination, Navigation]}
-                className="max-w-screen w-screen h-[490px] 2xl:h-[540px]"
+                className="max-w-screen w-screen h-[500px] 2xl:h-[540px]"
               >
                 {outdoorImages.map((image, index) => (
                   <SwiperSlide
@@ -178,7 +178,7 @@ export default function Gallery() {
                   spaceBetween={5}
                   navigation={true}
                   modules={[Grid, Pagination, Navigation]}
-                  className="max-w-screen w-screen h-[490px] 2xl:h-[540px]"
+                  className="max-w-screen w-screen h-[500px] 2xl:h-[540px]"
                 >
                   {indoorImages.map((image, index) => (
                     <SwiperSlide
