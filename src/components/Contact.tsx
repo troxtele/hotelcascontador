@@ -1,13 +1,10 @@
-import { useState } from "react";
 import { FiMail } from "react-icons/fi";
 import image from "@/assets/images/contact/contact.webp";
 import { TypeAnimation } from "react-type-animation";
 import MotionX from "@/ui/MotionX";
-import ImageLoading from "@/ui/ImageLoading";
 import FadeIn from "@/ui/fadeIn";
 
 export default function Contact() {
-  const [loading, setLoading] = useState(true);
   return (
     <section id="contact" className=" overflow-hidden py-20">
       <div className="container">
@@ -26,11 +23,10 @@ export default function Contact() {
           <div className="left">
             <FadeIn>
               <div className="img">
-                {loading ? <ImageLoading /> : <></>}
                 <img
-                  onLoad={() => setLoading(false)}
+               
                   loading="lazy"
-                  className={`w-full h-full ${loading ? "hidden" : ""}`}
+                  className={`w-full h-full`}
                   src={image}
                   alt="image"
                 />

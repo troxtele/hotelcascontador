@@ -28,7 +28,7 @@ export default function Gallery() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [activePopup, setActivePopup] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
+
   const [loadIndoor, setLoadIndoor] = useState(false);
 
   useEffect(() => {
@@ -131,10 +131,8 @@ export default function Gallery() {
                       onClick={() => setActivePopup(true)}
                     >
                       <img
-                        onLoad={() => setLoading(false)}
-                        className={`w-full h-full object-cover cursor-pointer ${
-                          loading ? "hidden" : ""
-                        }`}
+                     
+                        className={`w-full h-full object-cover cursor-pointer`}
                         src={image}
                         loading="lazy"
                         alt={`outdoor-image-${index}`}
