@@ -134,7 +134,7 @@ export default function Gallery() {
                       {loading ? <LoadingAnimation /> : <></>}
                       <img
                         onLoad={() => setLoading(false)}
-                        className={`w-[inherit] h-[inherit] ${
+                        className={`w-full h-full object-cover cursor-pointer ${
                           loading ? "hidden" : ""
                         }`}
                         src={image}
