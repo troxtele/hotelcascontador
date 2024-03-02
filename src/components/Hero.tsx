@@ -5,14 +5,6 @@ import { RiArrowDownDoubleLine } from "react-icons/ri";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null!);
-  // const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-
-  // useEffect(() => {
-  //   console.log(videoRef.current);
-  //   videoRef.current.onloadeddata = () => {
-  //     setIsVideoPlaying(true);
-  //   };
-  // }, [videoRef]);
 
   return (
     <section id="hero" className="hero relative overflow-hidden">

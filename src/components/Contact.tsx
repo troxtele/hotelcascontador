@@ -29,6 +29,7 @@ export default function Contact() {
                 {loading ? <ImageLoading /> : <></>}
                 <img
                   onLoad={() => setLoading(false)}
+                  loading="lazy"
                   className={`w-full h-full ${loading ? "hidden" : ""}`}
                   src={image}
                   alt="image"

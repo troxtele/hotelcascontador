@@ -35,10 +35,10 @@ export default function Guests() {
                   className="booking"
                   onClick={() => setToggle("booking")}
                 >
-                  <img src={bookingImg} alt="booking" />
+                  <img loading="lazy" src={bookingImg} alt="booking" />
                 </button>
                 <button className="airbnb" onClick={() => setToggle("airbnb")}>
-                  <img src={airbnbImg} alt="airbnb" />
+                  <img loading="lazy" src={airbnbImg} alt="airbnb" />
                 </button>
 
                 {/* arrow */}

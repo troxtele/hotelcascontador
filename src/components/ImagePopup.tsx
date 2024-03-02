@@ -68,7 +68,7 @@ export default function ImagePopup({
         >
           {data?.map((item, i) => (
             <SwiperSlide key={index + i} className="w-full">
-              <img className="w-full" src={item} alt="" />
+              <img loading="lazy" className="w-full" src={item} alt="" />
             </SwiperSlide>
           ))}
         </Swiper>

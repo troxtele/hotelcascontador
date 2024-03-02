@@ -138,6 +138,7 @@ export default function Gallery() {
                           loading ? "hidden" : ""
                         }`}
                         src={image}
+                        loading="lazy"
                         alt={`outdoor-image-${index}`}
                       />
                     </div>
@@ -193,6 +194,7 @@ export default function Gallery() {
                         <img
                           className="h-[inherit] w-[inherit]"
                           src={image}
+                          loading="lazy"
                           alt={`indoor-image-${index}`}
                         />
                       </div>
