@@ -76,12 +76,13 @@ export default function Navbar({
               className="main-logo flex justify-center items-center gap-1 py-2.5 sm:py-5 min-h-full"
             >
               <img
-                className={`transition-all duration-500  ${
+                className={`transition-all duration-500 w-full  ${
                   scrolled
                     ? "max-h-[1.8rem] lg:max-h-[2.1rem]"
                     : "max-h-[2.5rem] lg:max-h-[3rem]"
                 }`}
                 src={logo}
+
                 alt="logo"
               />
             </a>
